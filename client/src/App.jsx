@@ -9,7 +9,7 @@ import {
   confirmSignUp,
 } from 'aws-amplify/auth'
 
-const client = generateClient()
+const client = generateClient({ authMode: 'userPool' })
 
 function readGroups(session) {
   const groups = session?.tokens?.idToken?.payload?.['cognito:groups']
@@ -32,6 +32,7 @@ export default function App() {
   const [provider, setProvider] = useState('openai')
   const [savingProvider, setSavingProvider] = useState(false)
   const [topic, setTopic] = useState('forensics')
+  const [adminTopic, setAdminTopic] = useState('forensics')
   const [topics, setTopics] = useState(['forensics', 'designer genes'])
   const [preprocessing, setPreprocessing] = useState(false)
 
@@ -45,7 +46,11 @@ export default function App() {
 
   const loadTopics = async () => {
     const { data } = await client.queries.documentsTopics()
-    if (data?.topics?.length) setTopics(data.topics)
+    if (data?.topics?.length) {
+      setTopics(data.topics)
+      if (!data.topics.includes(topic)) setTopic(data.topics[0])
+      if (!data.topics.includes(adminTopic)) setAdminTopic(data.topics[0])
+    }
   }
 
   const loadProvider = async () => {
@@ -183,7 +188,7 @@ export default function App() {
   const handlePreprocess = async () => {
     setPreprocessing(true)
     try {
-      await client.mutations.documentsImportTopic({ topic })
+      await client.mutations.documentsImportTopic({ topic: adminTopic })
       await client.mutations.documentsPreprocess()
       await loadTopics()
     } catch (err) {
@@ -230,30 +235,34 @@ export default function App() {
     <div className="app">
       <h1>Chatbot</h1>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
-        <div>{isAdmin ? `Admin mode • Provider: ${provider}` : `Provider: ${provider}`}</div>
+        <div>{isAdmin ? `Admin mode • Provider: ${provider}` : 'User mode'}</div>
         <button className="secondary" onClick={handleSignOut}>Sign out</button>
       </div>
 
       <div style={{ display: 'flex', gap: 8, alignItems: 'center', marginBottom: 12, flexWrap: 'wrap' }}>
-        {isAdmin && (
-          <>
-            <label>Provider:</label>
-            <select value={provider} onChange={(e) => setProvider(e.target.value)}>
-              <option value="openai">OpenAI</option>
-              <option value="google">Google (Gemini)</option>
-              <option value="bedrock">Bedrock</option>
-            </select>
-            <button onClick={handleSaveProvider} disabled={savingProvider}>{savingProvider ? 'Saving...' : 'Save Provider'}</button>
-          </>
-        )}
-
-        <label style={{ marginLeft: isAdmin ? 12 : 0 }}>Topic:</label>
+        <label>Topic:</label>
         <select value={topic} onChange={(e) => setTopic(e.target.value)}>
           {topics.map((t) => <option key={t} value={t}>{t}</option>)}
         </select>
-
-        {isAdmin && <button onClick={handlePreprocess}>Preprocess</button>}
       </div>
+
+      {isAdmin && (
+        <div style={{ display: 'flex', gap: 8, alignItems: 'center', marginBottom: 12, flexWrap: 'wrap' }}>
+          <strong>Admin Tools:</strong>
+          <label>Provider:</label>
+          <select value={provider} onChange={(e) => setProvider(e.target.value)}>
+            <option value="openai">OpenAI</option>
+            <option value="google">Google (Gemini)</option>
+            <option value="bedrock">Bedrock</option>
+          </select>
+          <button onClick={handleSaveProvider} disabled={savingProvider}>{savingProvider ? 'Saving...' : 'Save Provider'}</button>
+          <label style={{ marginLeft: 8 }}>Preprocess Topic:</label>
+          <select value={adminTopic} onChange={(e) => setAdminTopic(e.target.value)}>
+            {topics.map((t) => <option key={t} value={t}>{t}</option>)}
+          </select>
+          <button onClick={handlePreprocess}>Preprocess</button>
+        </div>
+      )}
 
       <div className="chat">
         {messages.map((m, i) => (

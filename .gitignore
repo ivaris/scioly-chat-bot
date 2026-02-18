@@ -11,3 +11,5 @@ logs/
 *.log
 *.tmp
 *.bak
+*.swp
+dist/**

@@ -100,6 +100,6 @@ export const data = defineData({
     documentsFunction,
   },
   authorizationModes: {
-    defaultAuthorizationMode: 'identityPool',
+    defaultAuthorizationMode: 'userPool',
   },
 });
