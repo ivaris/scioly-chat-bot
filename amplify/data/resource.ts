@@ -1,6 +1,6 @@
 import { type ClientSchema, a, defineData } from '@aws-amplify/backend';
-import { chatFunction } from '../functions/chat/resource';
-import { documentsFunction } from '../functions/documents/resource';
+import { chatFunction } from '../functions/chat/resource.ts';
+import { documentsFunction } from '../functions/documents/resource.ts';
 
 const schema = a.schema({
   Document: a

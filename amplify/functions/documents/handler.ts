@@ -1,8 +1,8 @@
 import { Amplify } from 'aws-amplify';
 import { generateClient } from 'aws-amplify/data';
 import { getAmplifyDataClientConfig } from '@aws-amplify/backend/function/runtime';
-import type { Schema } from '../../data/resource';
-import { computeEmbedding, extractTextFromFile } from '../../common/utils';
+import type { Schema } from '../../data/resource.ts';
+import { computeEmbedding, extractTextFromFile } from '../../common/utils.ts';
 import fs from 'fs-extra';
 import path from 'path';
 import { fileURLToPath } from 'url';

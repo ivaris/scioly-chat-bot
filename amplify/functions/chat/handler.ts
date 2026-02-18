@@ -2,8 +2,8 @@ import fetch from 'node-fetch';
 import { Amplify } from 'aws-amplify';
 import { generateClient } from 'aws-amplify/data';
 import { getAmplifyDataClientConfig } from '@aws-amplify/backend/function/runtime';
-import type { Schema } from '../../data/resource';
-import { computeEmbedding, cosine } from '../../common/utils';
+import type { Schema } from '../../data/resource.ts';
+import { computeEmbedding, cosine } from '../../common/utils.ts';
 import { BedrockRuntimeClient, InvokeModelCommand } from '@aws-sdk/client-bedrock-runtime';
 
 const { resourceConfig, libraryOptions } = await getAmplifyDataClientConfig(process.env as any);
