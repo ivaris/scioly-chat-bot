@@ -1,0 +1,13 @@
+node_modules/
+server/node_modules/
+client/node_modules/
+.env
+.amplify/
+.DS_Store
+dist/
+build/
+coverage/
+logs/
+*.log
+*.tmp
+*.bak
