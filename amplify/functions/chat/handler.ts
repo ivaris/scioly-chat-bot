@@ -14,6 +14,23 @@ const dataClient = generateClient<Schema>({
 });
 
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY || null;
+const BEDROCK_REGION = process.env.BEDROCK_REGION || process.env.AWS_REGION || 'us-west-2';
+const BEDROCK_MODEL_ID = process.env.BEDROCK_MODEL_ID || 'anthropic.claude-3-haiku-20240307-v1:0';
+const ALLOWED_PROVIDERS = ['openai', 'google', 'bedrock'] as const;
+
+async function getConfiguredProvider(): Promise<string> {
+  const fallback = OPENAI_API_KEY ? 'openai' : ((process.env.GOOGLE_API_KEY || null) ? 'google' : 'bedrock');
+  const { data: configs, errors } = await dataClient.models.AppConfig.list({
+    filter: { key: { eq: 'global' } },
+  });
+  if (errors?.length) {
+    console.error('Failed to load AppConfig in chat', errors);
+    return fallback;
+  }
+  const provider = configs?.[0]?.provider;
+  if (provider && ALLOWED_PROVIDERS.includes(provider as any)) return provider;
+  return fallback;
+}
 
 type ChatMessage = { role: string; content: string };
 
@@ -67,12 +84,13 @@ async function retrieveContext(topic: string | null, query: string | null, k = 3
 
 export const handler: Schema['chat']['functionHandler'] = async (event) => {
   try {
-    const { messagesJson, provider = null, topic = null } = event.arguments;
+    const { messagesJson, topic = null } = event.arguments;
+    const provider = await getConfiguredProvider();
     const messages = JSON.parse(messagesJson || '[]') as ChatMessage[];
     if (!messages || !Array.isArray(messages)) return { error: 'messages array required' };
     const ALLOWED_TOPICS = ['forensics', 'designer genes'];
-    const DEFAULT_REPLY = `Please select a provider (openai or google) and a topic (forensics or designer genes) before chatting.`;
-    if (!provider || !['openai', 'google', 'bedrock'].includes(provider) || !topic || !ALLOWED_TOPICS.includes(topic)) {
+    const DEFAULT_REPLY = `Please select a topic (forensics or designer genes) before chatting.`;
+    if (!topic || !ALLOWED_TOPICS.includes(topic)) {
       return { reply: DEFAULT_REPLY };
     }
 
@@ -91,23 +109,24 @@ export const handler: Schema['chat']['functionHandler'] = async (event) => {
       const content = data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content;
       return { reply: content };
     } else if (provider === 'bedrock') {
-      const client = new BedrockRuntimeClient({ region: 'us-east-1' });
-      const modelId = 'anthropic.claude-v2';
-      const prompt = `\n\nHuman: ${systemContext}\n\n${userQuery}\n\nAssistant:`;
+      const client = new BedrockRuntimeClient({ region: BEDROCK_REGION });
+      const prompt = `${systemContext ? `${systemContext}\n\n` : ''}${userQuery}`;
       const command = new InvokeModelCommand({
-        modelId,
+        modelId: BEDROCK_MODEL_ID,
         contentType: 'application/json',
         accept: 'application/json',
         body: JSON.stringify({
-          prompt,
-          max_tokens_to_sample: 2000,
+          anthropic_version: 'bedrock-2023-05-31',
+          messages: [{ role: 'user', content: prompt }],
+          max_tokens: 1200,
           temperature: 0.2,
         }),
       });
       const response = await client.send(command);
       const jsonString = new TextDecoder().decode(response.body);
-      const data = JSON.parse(jsonString);
-      const content = data.completion;
+      const data: any = JSON.parse(jsonString);
+      const content = data?.content?.[0]?.text || data?.output_text || '';
+      if (!content) return { error: `Bedrock returned empty output: ${jsonString}` };
       return { reply: content };
     }
 

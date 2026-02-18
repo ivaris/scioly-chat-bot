@@ -3,10 +3,18 @@ import { auth } from './auth/resource.ts';
 import { data } from './data/resource.ts';
 import { chatFunction } from './functions/chat/resource.ts';
 import { documentsFunction } from './functions/documents/resource.ts';
+import { PolicyStatement } from 'aws-cdk-lib/aws-iam';
 
-defineBackend({
+const backend = defineBackend({
   auth,
   data,
   chatFunction,
   documentsFunction,
 });
+
+backend.chatFunction.resources.lambda.addToRolePolicy(
+  new PolicyStatement({
+    actions: ['bedrock:InvokeModel'],
+    resources: ['*'],
+  }),
+);

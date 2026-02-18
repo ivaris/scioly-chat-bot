@@ -29,40 +29,62 @@ const schema = a.schema({
     total: a.integer(),
   }),
 
+  LlmProvider: a.customType({
+    provider: a.string(),
+  }),
+
+  AppConfig: a
+    .model({
+      key: a.string().required(),
+      provider: a.string().required(),
+    })
+    .authorization((allow) => [allow.group('admin')]),
+
   chat: a
     .mutation()
     .arguments({
       messagesJson: a.string().required(),
-      provider: a.string(),
       topic: a.string(),
     })
     .returns(a.ref('ChatResponse'))
-    .authorization((allow) => [allow.authenticated(), allow.guest()])
+    .authorization((allow) => [allow.authenticated()])
     .handler(a.handler.function('chatFunction')),
 
   documentsImportTopic: a
     .mutation()
     .arguments({
       topic: a.string().required(),
-      provider: a.string(),
     })
     .returns(a.ref('OperationStatus'))
-    .authorization((allow) => [allow.authenticated(), allow.guest()])
+    .authorization((allow) => [allow.group('admin')])
     .handler(a.handler.function('documentsFunction')),
 
   documentsPreprocess: a
     .mutation()
+    .arguments({})
+    .returns(a.ref('OperationStatus'))
+    .authorization((allow) => [allow.group('admin')])
+    .handler(a.handler.function('documentsFunction')),
+
+  getLlmProvider: a
+    .query()
+    .returns(a.ref('LlmProvider'))
+    .authorization((allow) => [allow.authenticated()])
+    .handler(a.handler.function('documentsFunction')),
+
+  setLlmProvider: a
+    .mutation()
     .arguments({
-      provider: a.string(),
+      provider: a.string().required(),
     })
     .returns(a.ref('OperationStatus'))
-    .authorization((allow) => [allow.authenticated(), allow.guest()])
+    .authorization((allow) => [allow.group('admin')])
     .handler(a.handler.function('documentsFunction')),
 
   documentsTopics: a
     .query()
     .returns(a.ref('TopicList'))
-    .authorization((allow) => [allow.authenticated(), allow.guest()])
+    .authorization((allow) => [allow.authenticated()])
     .handler(a.handler.function('documentsFunction')),
 }).authorization((allow) => [
   allow.resource(chatFunction).to(['query', 'mutate']),

@@ -21,6 +21,8 @@ const LOCAL_DOCS_DIR = path.resolve(__dirname, '..', '..', '..', 'local_docs');
 
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY || null;
 const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY || null;
+const ALLOWED_PROVIDERS = ['openai', 'google', 'bedrock'] as const;
+const DEFAULT_PROVIDER: string = OPENAI_API_KEY ? 'openai' : (GOOGLE_API_KEY ? 'google' : 'bedrock');
 
 async function walkDir(dir: string) {
   const results: string[] = [];
@@ -37,7 +39,57 @@ async function walkDir(dir: string) {
   return results;
 }
 
-async function importTopic(topic: string, provider: string | null) {
+async function getConfiguredProvider(): Promise<string> {
+  const { data: configs, errors } = await dataClient.models.AppConfig.list({
+    filter: { key: { eq: 'global' } },
+  });
+  if (errors?.length) {
+    console.error('Failed to load AppConfig', errors);
+    return DEFAULT_PROVIDER;
+  }
+  const provider = configs?.[0]?.provider;
+  if (provider && ALLOWED_PROVIDERS.includes(provider as any)) return provider;
+  return DEFAULT_PROVIDER;
+}
+
+async function setConfiguredProvider(provider: string) {
+  if (!ALLOWED_PROVIDERS.includes(provider as any)) {
+    return { ok: false, message: `Invalid provider: ${provider}`, total: 0 };
+  }
+  const { data: configs, errors } = await dataClient.models.AppConfig.list({
+    filter: { key: { eq: 'global' } },
+  });
+  if (errors?.length) {
+    console.error('Failed to list AppConfig', errors);
+    return { ok: false, message: 'Failed to load config', total: 0 };
+  }
+
+  const existing = configs?.[0];
+  if (existing?.id) {
+    const { errors: updateErrors } = await dataClient.models.AppConfig.update({
+      id: existing.id,
+      key: 'global',
+      provider,
+    });
+    if (updateErrors?.length) {
+      console.error('Failed to update AppConfig', updateErrors);
+      return { ok: false, message: 'Failed to update provider', total: 0 };
+    }
+  } else {
+    const { errors: createErrors } = await dataClient.models.AppConfig.create({
+      key: 'global',
+      provider,
+    });
+    if (createErrors?.length) {
+      console.error('Failed to create AppConfig', createErrors);
+      return { ok: false, message: 'Failed to save provider', total: 0 };
+    }
+  }
+
+  return { ok: true, message: `Provider set to ${provider}`, total: 1 };
+}
+
+async function importTopic(topic: string, provider: string) {
   const slug = topic.toString().toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '');
   const topicDir = path.join(LOCAL_DOCS_DIR, slug);
   if (!fs.existsSync(topicDir)) {
@@ -80,7 +132,7 @@ async function importTopic(topic: string, provider: string | null) {
   return { ok: true, message: `Imported ${added} files`, total: existingDocs.length + added };
 }
 
-async function preprocess(provider: string | null) {
+async function preprocess(provider: string) {
   const { data: existingDocs } = await dataClient.models.Document.list();
   const seenPaths = new Set(existingDocs.map((d: any) => path.resolve(d.path)));
 
@@ -133,8 +185,10 @@ async function getTopics() {
 export const handler = async (event: any) => {
   const field = event?.info?.fieldName;
   const args = event?.arguments || {};
-  const provider = args.provider || (OPENAI_API_KEY ? 'openai' : (GOOGLE_API_KEY ? 'google' : null));
+  const provider = await getConfiguredProvider();
 
+  if (field === 'getLlmProvider') return { provider };
+  if (field === 'setLlmProvider') return await setConfiguredProvider(args.provider);
   if (field === 'documentsTopics') return await getTopics();
   if (field === 'documentsImportTopic') return await importTopic(args.topic, provider);
   if (field === 'documentsPreprocess') return await preprocess(provider);
