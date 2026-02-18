@@ -152,7 +152,7 @@ export default function App() {
 
   const handleSaveProvider = async () => {
     if (!client?.mutations?.setLlmProvider) {
-      setMessages((prev) => [...prev, { role: 'assistant', content: 'Admin provider controls are not deployed yet. Redeploy backend and refresh amplify outputs.' }])
+      setMessages((prev) => [...prev, { role: 'assistant', content: `Admin provider API not deployed yet. Using local provider "${provider}" for chat requests.` }])
       return
     }
     setSavingProvider(true)
@@ -191,10 +191,20 @@ export default function App() {
     setInput('')
     setLoading(true)
     try {
-      const { data, errors } = await client.mutations.chat({
+      let { data, errors } = await client.mutations.chat({
         messagesJson: JSON.stringify(next),
         topic,
       })
+      const oldProviderPrompt = data?.reply?.includes('Please select a provider')
+      if (oldProviderPrompt) {
+        const retry = await client.mutations.chat({
+          messagesJson: JSON.stringify(next),
+          topic,
+          provider,
+        })
+        data = retry.data
+        errors = retry.errors
+      }
       if (errors?.length) throw new Error(errors.map((e) => e.message).join(', '))
       setMessages((prev) => [...prev, { role: 'assistant', content: data?.reply || data?.error || 'No response' }])
     } catch (err) {
