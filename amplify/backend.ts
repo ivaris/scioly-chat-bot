@@ -1,8 +1,13 @@
-import { defineBackend } from '@aws-amplify/backend';
-import { auth } from './auth/resource';
+import { defineAuth, defineBackend } from '@aws-amplify/backend';
 import { data } from './data/resource';
 import { chatFunction } from './functions/chat/resource';
 import { documentsFunction } from './functions/documents/resource';
+
+const auth = defineAuth({
+  loginWith: {
+    email: true,
+  },
+});
 
 defineBackend({
   auth,
