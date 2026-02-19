@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { generateClient } from 'aws-amplify/data'
 import {
-  confirmSignUp,
+  confirmSignIn,
   fetchAuthSession,
   getCurrentUser,
   signIn,
   signOut,
-  signUp,
 } from 'aws-amplify/auth'
 
 const client = generateClient({ authMode: 'userPool' })
@@ -22,7 +21,7 @@ export default function App() {
   const [authMode, setAuthMode] = useState('signin')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [code, setCode] = useState('')
+  const [newPassword, setNewPassword] = useState('')
   const [authError, setAuthError] = useState('')
   const [authLoading, setAuthLoading] = useState(true)
 
@@ -81,8 +80,8 @@ export default function App() {
     setAuthLoading(true)
     try {
       const result = await signIn({ username: email, password })
-      if (result.nextStep?.signInStep === 'CONFIRM_SIGN_UP') {
-        setAuthMode('confirm')
+      if (result.nextStep?.signInStep === 'CONFIRM_SIGN_IN_WITH_NEW_PASSWORD_REQUIRED') {
+        setAuthMode('newPassword')
       } else {
         await refreshSession()
         await Promise.all([loadTopics(), loadProvider()])
@@ -105,32 +104,20 @@ export default function App() {
     }
   }
 
-  const handleSignUp = async () => {
+  const handleCompleteNewPassword = async () => {
     setAuthError('')
     setAuthLoading(true)
     try {
-      await signUp({
-        username: email,
-        password,
-        options: { userAttributes: { email } },
-      })
-      setAuthMode('confirm')
-    } catch (err) {
-      setAuthError(err?.message || String(err))
-    } finally {
-      setAuthLoading(false)
-    }
-  }
-
-  const handleConfirm = async () => {
-    setAuthError('')
-    setAuthLoading(true)
-    try {
-      await confirmSignUp({ username: email, confirmationCode: code })
-      await signIn({ username: email, password })
+      if (!newPassword || newPassword.length < 8) {
+        setAuthError('Please enter a new password (at least 8 characters).')
+        return
+      }
+      await confirmSignIn({ challengeResponse: newPassword })
       await refreshSession()
       await Promise.all([loadTopics(), loadProvider()])
-      setCode('')
+      setAuthMode('signin')
+      setPassword('')
+      setNewPassword('')
     } catch (err) {
       setAuthError(err?.message || String(err))
     } finally {
@@ -223,19 +210,31 @@ export default function App() {
       <div className="app auth-shell">
         <h1>Chatbot</h1>
         <div className="auth-card">
-          <h2>{authMode === 'signup' ? 'Create Account' : authMode === 'confirm' ? 'Confirm Account' : 'Sign In'}</h2>
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
-          {authMode === 'confirm' && <input type="text" value={code} onChange={(e) => setCode(e.target.value)} placeholder="Confirmation code" />}
+          <h2>{authMode === 'newPassword' ? 'Set New Password' : 'Sign In'}</h2>
+          <div className="auth-note">Account access is invite-only. Ask an admin to create your account.</div>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Email"
+            disabled={authMode === 'newPassword'}
+          />
+          {authMode === 'signin' && (
+            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
+          )}
+          {authMode === 'newPassword' && (
+            <input
+              type="password"
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
+              placeholder="New password"
+            />
+          )}
           {authError && <div className="auth-error">{authError}</div>}
           <div className="auth-actions">
             {authMode === 'signin' && <button onClick={handleSignIn}>Sign In</button>}
-            {authMode === 'signup' && <button onClick={handleSignUp}>Create Account</button>}
-            {authMode === 'confirm' && <button onClick={handleConfirm}>Confirm</button>}
-            {authMode !== 'signin' && <button className="secondary" onClick={() => setAuthMode('signin')}>Use existing account</button>}
-            {authMode !== 'signup' && authMode !== 'confirm' && (
-              <button className="secondary" onClick={() => setAuthMode('signup')}>Create new account</button>
-            )}
+            {authMode === 'newPassword' && <button onClick={handleCompleteNewPassword}>Set Password</button>}
+            {authMode === 'newPassword' && <button className="secondary" onClick={() => setAuthMode('signin')}>Back</button>}
           </div>
         </div>
       </div>
