@@ -34,6 +34,86 @@ async function getConfiguredProvider(): Promise<string> {
 
 type ChatMessage = { role: string; content: string };
 
+function getImageRequestTerm(text: string): string | null {
+  const t = (text || '').trim();
+  const patterns = [
+    /^(show|find|give|display)\s+(me\s+)?(some\s+)?(images?|pictures?|photos?)\s+(of|for)\s+(.+)$/i,
+    /^(images?|pictures?|photos?)\s+(of|for)\s+(.+)$/i,
+  ];
+  for (const p of patterns) {
+    const m = t.match(p);
+    if (!m) continue;
+    const raw = (m[m.length - 1] || '').trim();
+    if (!raw) continue;
+    return raw;
+  }
+  return null;
+}
+
+const BLOCKED_IMAGE_TERMS = [
+  'porn',
+  'nude',
+  'nudity',
+  'sex',
+  'gore',
+  'graphic violence',
+  'beheading',
+  'self-harm',
+  'suicide',
+  'terrorist',
+];
+
+const TOPIC_KEYWORDS: Record<string, string[]> = {
+  forensics: [
+    'forensic', 'crime', 'scene', 'evidence', 'fingerprint', 'fiber', 'fibers',
+    'cotton', 'hair', 'blood', 'shoeprint', 'toolmark', 'trace',
+  ],
+  'designer genes': [
+    'gene', 'genes', 'genetic', 'genome', 'dna', 'crispr', 'gmo', 'editing',
+    'mutation', 'heredity', 'chromosome', 'allele', 'biotech',
+  ],
+};
+
+function isSafeImageTerm(term: string): boolean {
+  const t = term.toLowerCase();
+  return !BLOCKED_IMAGE_TERMS.some((w) => t.includes(w));
+}
+
+function isImageTermRelevantToTopic(term: string, topic: string): boolean {
+  const t = term.toLowerCase();
+  const keywords = TOPIC_KEYWORDS[topic] || [];
+  if (!keywords.length) return false;
+  if (keywords.some((k) => t.includes(k))) return true;
+  // Allow exact topic mention as fallback
+  return t.includes(topic.toLowerCase());
+}
+
+function getImageGuardrailFailure(term: string, topic: string): string | null {
+  if (term.length > 120) {
+    return 'Image request is too long. Keep it short and topic-specific.';
+  }
+  if (!isSafeImageTerm(term)) {
+    return 'Image request blocked by safety guardrails.';
+  }
+  if (!isImageTermRelevantToTopic(term, topic)) {
+    return `Image request must be related to the selected topic "${topic}".`;
+  }
+  return null;
+}
+
+function buildImageSearchReply(term: string, topic: string): string {
+  const q = encodeURIComponent(`${term} ${topic}`.trim());
+  const links = [
+    `Google Images: https://www.google.com/search?tbm=isch&q=${q}`,
+    `Bing Images: https://www.bing.com/images/search?q=${q}`,
+    `Wikimedia Commons: https://commons.wikimedia.org/w/index.php?search=${q}&title=Special:MediaSearch&type=image`,
+  ];
+  return [
+    `Image results for "${term}" in topic "${topic}":`,
+    ...links.map((l) => `- ${l}`),
+  ].join('\n');
+}
+
 async function retrieveContext(topic: string | null, query: string | null, k = 3, provider = 'openai') {
   let candidates: any[] = [];
   
@@ -95,6 +175,15 @@ export const handler: Schema['chat']['functionHandler'] = async (event) => {
     }
 
     const userQuery = messages.filter((m: any) => m.role === 'user').map((m: any) => m.content).join('\n');
+    const imageTerm = getImageRequestTerm(userQuery);
+    if (imageTerm) {
+      const guardrailFailure = getImageGuardrailFailure(imageTerm, topic);
+      if (guardrailFailure) {
+        return { reply: guardrailFailure };
+      }
+      return { reply: buildImageSearchReply(imageTerm, topic) };
+    }
+
     const contexts = await retrieveContext(topic, userQuery, 4, provider);
     const systemContext = contexts.length ? `Context from documents:\n${contexts.join('\n---\n')}` : '';
     const payloadMessages: any[] = [];
