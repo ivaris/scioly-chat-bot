@@ -114,6 +114,14 @@ function buildImageSearchReply(term: string, topic: string): string {
   ].join('\n');
 }
 
+function runImageSearchTool(rawQuery: string, selectedTopic: string): string {
+  const query = (rawQuery || '').trim();
+  if (!query) return 'Tool error: query is required.';
+  const guardrailFailure = getImageGuardrailFailure(query, selectedTopic);
+  if (guardrailFailure) return guardrailFailure;
+  return buildImageSearchReply(query, selectedTopic);
+}
+
 async function retrieveContext(topic: string | null, query: string | null, k = 3, provider = 'openai') {
   let candidates: any[] = [];
   
@@ -192,11 +200,74 @@ export const handler: Schema['chat']['functionHandler'] = async (event) => {
 
     if (provider === 'openai') {
       if (!OPENAI_API_KEY) return { error: 'OPENAI_API_KEY not configured on server' };
-      const resp = await fetch('https://api.openai.com/v1/chat/completions', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${OPENAI_API_KEY}` }, body: JSON.stringify({ model: 'gpt-4o-mini', messages: payloadMessages, temperature: 0.2 }) });
+      const tools = [
+        {
+          type: 'function',
+          function: {
+            name: 'search_images',
+            description: 'Search for topic-relevant educational images and return links.',
+            parameters: {
+              type: 'object',
+              properties: {
+                query: { type: 'string', description: 'Image search query text.' },
+              },
+              required: ['query'],
+              additionalProperties: false,
+            },
+          },
+        },
+      ];
+      const resp = await fetch('https://api.openai.com/v1/chat/completions', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${OPENAI_API_KEY}` }, body: JSON.stringify({ model: 'gpt-4o-mini', messages: payloadMessages, temperature: 0.2, tools, tool_choice: 'auto' }) });
       if (!resp.ok) { const t = await resp.text(); return { error: `OpenAI error: ${t}` }; }
       const data: any = await resp.json();
-      const content = data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content;
-      return { reply: content };
+      const firstMessage = data?.choices?.[0]?.message;
+      const toolCalls = firstMessage?.tool_calls || [];
+
+      if (Array.isArray(toolCalls) && toolCalls.length > 0) {
+        const followupMessages: any[] = [
+          ...payloadMessages,
+          {
+            role: 'assistant',
+            content: firstMessage?.content ?? '',
+            tool_calls: toolCalls,
+          },
+        ];
+
+        for (const tc of toolCalls) {
+          const name = tc?.function?.name;
+          let toolOutput = 'Unsupported tool call.';
+          if (name === 'search_images') {
+            try {
+              const args = JSON.parse(tc?.function?.arguments || '{}');
+              toolOutput = runImageSearchTool(String(args?.query || ''), topic);
+            } catch (_e) {
+              toolOutput = 'Tool error: invalid arguments.';
+            }
+          }
+
+          followupMessages.push({
+            role: 'tool',
+            tool_call_id: tc.id,
+            content: toolOutput,
+          });
+        }
+
+        const secondResp = await fetch('https://api.openai.com/v1/chat/completions', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${OPENAI_API_KEY}` },
+          body: JSON.stringify({ model: 'gpt-4o-mini', messages: followupMessages, temperature: 0.2 }),
+        });
+        if (!secondResp.ok) {
+          const t = await secondResp.text();
+          return { error: `OpenAI follow-up error: ${t}` };
+        }
+        const secondData: any = await secondResp.json();
+        const finalContent = secondData?.choices?.[0]?.message?.content;
+        return { reply: finalContent || 'No response' };
+      }
+
+      const content = firstMessage?.content;
+      return { reply: content || 'No response' };
     } else if (provider === 'bedrock') {
       const client = new BedrockRuntimeClient({ region: BEDROCK_REGION });
       const prompt = `${systemContext ? `${systemContext}\n\n` : ''}${userQuery}`;

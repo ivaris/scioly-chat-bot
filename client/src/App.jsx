@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { generateClient } from 'aws-amplify/data'
 import {
   confirmSignIn,
+  confirmResetPassword,
   fetchAuthSession,
+  resetPassword,
   getCurrentUser,
   signIn,
   signOut,
@@ -22,6 +24,10 @@ export default function App() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [newPassword, setNewPassword] = useState('')
+  const [resetCode, setResetCode] = useState('')
+  const [resetEmail, setResetEmail] = useState('')
+  const [resetNewPassword, setResetNewPassword] = useState('')
+  const [resetCodeSent, setResetCodeSent] = useState(false)
   const [authError, setAuthError] = useState('')
   const [authLoading, setAuthLoading] = useState(true)
 
@@ -125,6 +131,41 @@ export default function App() {
     }
   }
 
+  const handleStartResetPassword = async () => {
+    setAuthError('')
+    setAuthLoading(true)
+    try {
+      await resetPassword({ username: resetEmail })
+      setResetCodeSent(true)
+    } catch (err) {
+      setAuthError(err?.message || String(err))
+    } finally {
+      setAuthLoading(false)
+    }
+  }
+
+  const handleConfirmResetPassword = async () => {
+    setAuthError('')
+    setAuthLoading(true)
+    try {
+      await confirmResetPassword({
+        username: resetEmail,
+        confirmationCode: resetCode,
+        newPassword: resetNewPassword,
+      })
+      setAuthMode('signin')
+      setEmail(resetEmail)
+      setPassword('')
+      setResetCode('')
+      setResetNewPassword('')
+      setResetCodeSent(false)
+    } catch (err) {
+      setAuthError(err?.message || String(err))
+    } finally {
+      setAuthLoading(false)
+    }
+  }
+
   const handleSignOut = async () => {
     setAuthLoading(true)
     try {
@@ -210,15 +251,17 @@ export default function App() {
       <div className="app auth-shell">
         <h1>Chatbot</h1>
         <div className="auth-card">
-          <h2>{authMode === 'newPassword' ? 'Set New Password' : 'Sign In'}</h2>
+          <h2>{authMode === 'newPassword' ? 'Set New Password' : authMode === 'resetPassword' ? 'Reset Password' : 'Sign In'}</h2>
           <div className="auth-note">Account access is invite-only. Ask an admin to create your account.</div>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Email"
-            disabled={authMode === 'newPassword'}
-          />
+          {authMode !== 'resetPassword' && (
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Email"
+              disabled={authMode === 'newPassword'}
+            />
+          )}
           {authMode === 'signin' && (
             <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
           )}
@@ -230,11 +273,41 @@ export default function App() {
               placeholder="New password"
             />
           )}
+          {authMode === 'resetPassword' && (
+            <>
+              <input
+                type="email"
+                value={resetEmail}
+                onChange={(e) => setResetEmail(e.target.value)}
+                placeholder="Email"
+              />
+              {resetCodeSent && (
+                <>
+                  <input
+                    type="text"
+                    value={resetCode}
+                    onChange={(e) => setResetCode(e.target.value)}
+                    placeholder="Reset code"
+                  />
+                  <input
+                    type="password"
+                    value={resetNewPassword}
+                    onChange={(e) => setResetNewPassword(e.target.value)}
+                    placeholder="New password"
+                  />
+                </>
+              )}
+            </>
+          )}
           {authError && <div className="auth-error">{authError}</div>}
           <div className="auth-actions">
             {authMode === 'signin' && <button onClick={handleSignIn}>Sign In</button>}
+            {authMode === 'signin' && <button className="secondary" onClick={() => { setAuthMode('resetPassword'); setResetEmail(email); }}>Forgot Password?</button>}
             {authMode === 'newPassword' && <button onClick={handleCompleteNewPassword}>Set Password</button>}
             {authMode === 'newPassword' && <button className="secondary" onClick={() => setAuthMode('signin')}>Back</button>}
+            {authMode === 'resetPassword' && !resetCodeSent && <button onClick={handleStartResetPassword}>Send Code</button>}
+            {authMode === 'resetPassword' && resetCodeSent && <button onClick={handleConfirmResetPassword}>Reset Password</button>}
+            {authMode === 'resetPassword' && <button className="secondary" onClick={() => { setAuthMode('signin'); setResetCodeSent(false); }}>Back to Sign In</button>}
           </div>
         </div>
       </div>
