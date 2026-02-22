@@ -109,8 +109,10 @@ function buildImageSearchReply(term: string, topic: string): string {
     `Wikimedia Commons: https://commons.wikimedia.org/w/index.php?search=${q}&title=Special:MediaSearch&type=image`,
   ];
   return [
-    `Image results for "${term}" in topic "${topic}":`,
-    ...links.map((l) => `- ${l}`),
+    `IMAGE_RESULTS`,
+    `topic=${topic}`,
+    `query=${term}`,
+    ...links,
   ].join('\n');
 }
 
@@ -224,14 +226,7 @@ export const handler: Schema['chat']['functionHandler'] = async (event) => {
       const toolCalls = firstMessage?.tool_calls || [];
 
       if (Array.isArray(toolCalls) && toolCalls.length > 0) {
-        const followupMessages: any[] = [
-          ...payloadMessages,
-          {
-            role: 'assistant',
-            content: firstMessage?.content ?? '',
-            tool_calls: toolCalls,
-          },
-        ];
+        const toolOutputs: string[] = [];
 
         for (const tc of toolCalls) {
           const name = tc?.function?.name;
@@ -244,26 +239,10 @@ export const handler: Schema['chat']['functionHandler'] = async (event) => {
               toolOutput = 'Tool error: invalid arguments.';
             }
           }
-
-          followupMessages.push({
-            role: 'tool',
-            tool_call_id: tc.id,
-            content: toolOutput,
-          });
+          toolOutputs.push(toolOutput);
         }
 
-        const secondResp = await fetch('https://api.openai.com/v1/chat/completions', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${OPENAI_API_KEY}` },
-          body: JSON.stringify({ model: 'gpt-4o-mini', messages: followupMessages, temperature: 0.2 }),
-        });
-        if (!secondResp.ok) {
-          const t = await secondResp.text();
-          return { error: `OpenAI follow-up error: ${t}` };
-        }
-        const secondData: any = await secondResp.json();
-        const finalContent = secondData?.choices?.[0]?.message?.content;
-        return { reply: finalContent || 'No response' };
+        return { reply: toolOutputs.join('\n\n') };
       }
 
       const content = firstMessage?.content;
