@@ -11,6 +11,14 @@ import {
 } from 'aws-amplify/auth'
 
 const client = generateClient({ authMode: 'userPool' })
+const CHAT_MUTATION_NO_PROVIDER = /* GraphQL */ `
+  mutation Chat($messagesJson: String!, $topic: String) {
+    chat(messagesJson: $messagesJson, topic: $topic) {
+      reply
+      error
+    }
+  }
+`
 
 function readGroups(session) {
   const groups = session?.tokens?.idToken?.payload?.['cognito:groups']
@@ -219,22 +227,17 @@ export default function App() {
     setInput('')
     setLoading(true)
     try {
-      let { data, errors } = await client.mutations.chat({
-        messagesJson: JSON.stringify(next),
-        topic,
-      })
-      const oldProviderPrompt = data?.reply?.includes('Please select a provider')
-      if (oldProviderPrompt) {
-        const retry = await client.mutations.chat({
+      const { data, errors } = await client.graphql({
+        query: CHAT_MUTATION_NO_PROVIDER,
+        variables: {
           messagesJson: JSON.stringify(next),
           topic,
-          provider,
-        })
-        data = retry.data
-        errors = retry.errors
-      }
+        },
+        authMode: 'userPool',
+      })
       if (errors?.length) throw new Error(errors.map((e) => e.message).join(', '))
-      setMessages((prev) => [...prev, { role: 'assistant', content: data?.reply || data?.error || 'No response' }])
+      const chatData = data?.chat
+      setMessages((prev) => [...prev, { role: 'assistant', content: chatData?.reply || chatData?.error || 'No response' }])
     } catch (err) {
       setMessages((prev) => [...prev, { role: 'assistant', content: `Error: ${String(err)}` }])
     } finally {
