@@ -1,0 +1,56 @@
+number,school,team,exhibition,city,state,track,rank,total,Anatomy and Physiology,Astronomy,Boomilever,Bungee Drop,Chemistry Lab,Circuit Lab,Codebusters,Designer Genes,Disease Detectives,Dynamic Planet,Electric Vehicle,Engineering CAD,Entomology,Experimental Design,Forensics,Helicopter,Hovercraft,KPOP ID (Trial),Machines,Materials Science,Poetic Science (Trial),Remote Sensing,Robot Tour,Rocks and Minerals,Water Quality
+32,Liberal Arts and Science Academy,Electron,,Austin,TX,,1,117,1,1,7,1,8,13,3,2,14,4,7,13,2,4,1,1,1,56,8,18,56,2,1,3,2
+52,William P. Clements High School,A,,Sugar Land,TX,,2,151,2,3,22,25,1,3,1,5,1,1,27,10,1,2,2,4,6,5,1,1,13,1,29,2,1
+5,BASIS Cedar Park,A,,Cedar Park,TX,,3,166,4,4,6,6,14,14,4,1,6,5,19,1,5,1,11,10,2,56,6,4,56,7,9,6,21
+26,Jordan High School,Gold,,Fulshear,TX,,4,207,11,7,13,32,6,17,6,3,10,2,8,6,31,9,3,7,11,56,4,9,56,4,2,1,5
+25,Jordan High School,Black,,Fulshear,TX,,5,246,18,2,18,29,2,7,8,22,12,16,2,2,15,7,6,6,9,56,10,15,56,3,4,25,8
+8,Bridgeland High School,1,,Cypress,TX,,6,259,40,35,4,7,16,9,29,7,4,7,15,9,8,6,5,2,8,25,2,3,2,9,7,13,14
+37,Obra D. Tompkins High School,A,,Katy,TX,,7,294,3,12,9,11,23,6,2,6,17,18,16,16,22,20,7,17,4,7,27,2,24,23,10,12,11
+1,Alamo Heights High School,Blue,,San Antonio,TX,,8,321,32,8,5,3,5,11,16,4,2,33,11,18,20,27,9,31,12,56,11,17,56,6,19,14,7
+9,Bridgeland High School,Blue,,Cypress,TX,,9,353,50,13,2,10,37,22,11,9,7,30,1,19,9,8,10,5,26,37,25,6,5,8,11,18,16
+43,Stephen F. Austin High School,Red,,Austin,TX,,10,381,6,23,38,21,19,12,7,13,3,14,32,34,12,5,8,35,13,8,3,13,12,5,56,5,4
+16,Cypress Woods High School,Crimson,,Cypress,TX,,11,401,22,26,10,16,21,18,13,16,22,8,23,7,4,19,13,30,5,10,44,32,20,11,6,15,20
+46,Roosevelt High School,Blue,,San Antonio,TX,,12,423,14,24,29,5,26,35,23,10,9,22,12,17,7,13,17,15,16,27,12,19,16,28,23,24,23
+38,Obra D. Tompkins High School,B,,Katy,TX,,13,447,43,32,14,13,15,16,14,29,8,12,14,29,24,16,16,22,26,22,30,11,8,19,15,11,18
+33,Liberal Arts and Science Academy,Proton,,Austin,TX,,14,452,28,20,1,24,38,26,10,50,19,20,17,20,11,12,31,8,20,24,16,21,14,16,3,9,32
+41,Kempner High School,A,,Sugar Land,TX,,15,457,15,27,11,2,46,29,21,17,15,29,6,22,10,15,26,9,7,32,14,41,56,43,8,32,12
+49,Westlake High School,,,Austin,TX,,16,461,5,21,35,8,49,23,18,20,11,6,22,11,19,3,40,11,19,56,23,42,56,10,5,30,30
+44,Stephen F. Austin High School,Black,,Austin,TX,,17,490,8,14,19,19,28,27,15,46,16,25,18,34,36,28,19,14,3,13,15,22,21,36,13,8,27
+53,William P. Clements High School,B,,Sugar Land,TX,,18,498,26,37,25,56,7,15,5,12,13,3,25,21,47,11,14,19,56,9,17,47,56,18,17,4,3
+4,BASIS Cedar Park,B,,Cedar Park,TX,,19,550,7,11,37,20,31,21,17,24,5,46,56,56,25,10,12,26,17,35,46,7,56,21,23,26,6
+19,Fulshear High School,Purple,,Fulshear,TX,,20,566,10,22,23,15,11,45,19,19,28,41,13,34,35,32,28,20,25,15,31,5,4,26,16,23,45
+10,Cypress Creek High School,A,,Houston,TX,,21,583,25,33,31,31,10,5,39,34,33,38,9,3,43,18,24,13,18,30,36,26,10,24,18,47,25
+40,Saint John's School,Black,,Houston,TX,,22,585,33,15,39,23,12,36,26,25,20,13,56,5,21,23,29,36,24,6,44,27,9,17,23,7,31
+54,Dulles High School,,,Sugar Land,TX,,23,615,19,10,3,56,20,56,20,14,21,10,56,34,14,14,15,3,56,56,28,37,56,30,56,10,33
+12,Cypress Falls High School,A,,Houston,TX,,24,621,17,48,40,33,35,33,12,32,25,43,5,12,13,46,4,21,23,11,5,24,22,32,56,28,34
+39,Ridge Point High School,,,Missouri City,TX,,25,664,12,34,30,36,13,10,42,21,34,11,31,34,17,33,43,56,56,56,21,34,56,15,14,19,48
+3,Austin Area Homeschoolers,,,Austin,TX,,26,670,47,6,17,38,4,4,27,51,47,45,4,4,53,44,39,25,28,38,34,8,29,34,56,38,17
+36,NYOS Charter School,,,Austin,TX,,27,689,27,50,28,56,25,49,32,31,29,37,10,34,3,31,34,12,56,17,33,16,56,13,22,42,19
+2,Alamo Heights High School,Gold,,San Antonio,TX,,28,739,42,30,20,12,44,19,45,27,31,42,56,27,16,43,21,34,10,56,9,30,56,41,56,44,40
+34,DeBakey High School for Health Professions,A,,Houston,TX,,29,745,9,29,8,34,3,8,56,28,23,17,56,56,38,21,25,56,56,3,51,12,7,56,56,34,13
+14,Tomball High School,A,,Tomball,TX,,30,748,23,46,24,4,24,20,41,47,18,32,29,8,56,29,32,56,56,56,18,56,56,39,20,27,43
+48,Gene Tomas High School,,,Richmond,TX,,31,755,20,36,32,56,29,31,25,38,24,19,28,34,42,40,42,33,56,12,31,14,19,35,23,16,51
+47,Roosevelt High School,Red,,San Antonio,TX,,32,779,31,38,27,18,47,34,28,43,36,27,56,25,51,56,20,16,22,16,24,36,28,48,28,29,39
+6,Bellville High School,Orcas,,Bellville,TX,,33,789,38,51,36,17,52,37,48,40,35,39,3,34,39,34,27,27,14,19,13,40,23,45,23,45,52
+17,Cypress Woods High School,Gold,,Cypress,TX,,34,802,41,43,26,14,39,47,36,26,38,40,20,33,50,24,45,23,56,1,29,45,11,20,56,36,15
+11,Cypress Creek High School,B,,Houston,TX,,35,804,29,47,21,30,50,39,49,35,32,36,24,56,29,48,48,18,56,26,19,29,25,33,12,35,29
+50,William B. Travis High School,Team 1,,Richmond,TX,,36,807,44,17,56,56,27,24,24,8,39,15,56,34,28,47,23,56,56,2,41,43,1,14,56,17,26
+23,John B. Connally High School,Black,,Austin,TX,,37,809,34,42,12,9,43,44,22,52,42,34,30,14,30,45,56,28,56,20,43,38,56,22,56,33,24
+22,Jack E. Singley Academy,,,Irving,TX,,38,878,36,41,56,37,48,25,51,33,41,23,21,26,46,17,36,29,29,33,47,44,18,47,56,43,46
+20,Fulshear High School,White,,Fulshear,TX,,39,880,54,44,56,56,34,1,43,49,45,21,56,28,18,36,38,56,56,21,38,20,26,12,56,41,22
+13,Cypress Falls High School,B,,Houston,TX,,40,890,30,18,41,35,40,40,38,48,46,44,56,31,44,42,18,56,56,18,26,33,56,38,29,46,35
+27,Katy High School,Elemental Masters,,Katy,TX,,41,902,37,19,56,56,33,46,47,37,30,24,56,32,6,25,35,56,56,56,49,39,56,40,56,39,28
+31,Lawrence E. Elkins High School,Team 2,,Missouri City,TX,,42,908,21,28,56,56,30,2,30,15,56,49,56,34,23,56,56,56,56,28,35,10,56,27,56,56,44
+51,William B. Travis High School,Team 2,,Richmond,TX,,43,910,39,40,56,56,32,28,34,18,56,47,56,34,33,22,41,56,56,23,20,56,17,44,56,20,10
+42,Saint Agnes Academy,,,Houston,TX,,44,945,16,16,56,28,9,56,37,11,56,56,56,34,40,56,56,56,56,56,51,56,56,56,56,22,9
+7,Bellville High School,Sharks,,Bellville,TX,,45,957,52,49,34,27,56,43,50,53,56,48,56,34,32,37,30,24,21,14,48,46,27,46,29,48,38
+55,Freeman High School,,,Katy,TX,,46,974,46,25,56,56,51,38,35,44,27,9,56,56,34,38,46,56,56,56,36,35,56,37,56,40,41
+24,John B. Connally High School,Green,,Austin,TX,,47,975,53,56,16,26,42,48,52,45,48,50,56,15,37,41,49,32,56,56,50,31,56,31,56,49,36
+28,Katy High School,Infinity Stones,,Katy,TX,,48,977,49,39,56,56,41,30,40,30,37,35,56,56,45,26,44,56,56,56,39,25,56,42,56,21,42
+21,Harmony School of Advancement - Houston,,,Houston,TX,,49,978,35,5,56,56,17,42,9,36,40,56,56,30,52,30,56,56,56,34,41,56,3,56,56,31,50
+29,Kingwood High School,Mustang Blue,,Kingwood,TX,,50,1000,51,56,15,56,36,41,44,41,44,31,26,56,27,56,56,56,56,56,7,56,56,56,21,56,56
+15,Cypress Lakes High School,,,Katy,TX,,51,1009,45,9,56,22,45,32,53,39,43,51,56,56,48,49,47,56,56,29,40,28,56,25,56,50,47
+35,DeBakey High School for Health Professions,B,,Houston,TX,,52,1034,13,31,56,56,56,56,33,23,56,56,56,23,56,35,33,56,15,31,51,56,56,56,56,56,49
+30,Kingwood High School,Mustang White,,Kingwood,TX,,53,1061,24,56,33,56,18,56,31,56,56,28,56,24,41,56,56,56,56,36,22,56,15,56,56,56,56
+45,Summer Creek High School,,,Houston,TX,,54,1086,48,56,56,56,22,56,46,42,56,26,56,56,26,56,37,56,56,56,51,23,56,56,56,37,56
+18,Lawrence E. Elkins High School,Team 1,,Missouri City,TX,,55,1138,56,45,56,56,56,56,56,56,26,56,56,56,49,39,22,56,56,4,51,56,6,29,56,56,37

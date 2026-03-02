@@ -1,0 +1,61 @@
+number,school,team,exhibition,city,state,track,rank,total,Anatomy and Physiology,Astronomy,Boomilever (Trial),Bungee Drop (Trial),Chemistry Lab,Circuit Lab,Codebusters,Designer Genes,Disease Detectives,Dynamic Planet,Electric Vehicle (Trial),Engineering CAD,Entomology,Experimental Design,Forensics,Helicopter (Trial),Hovercraft (Trial),Machines,Materials Science,Remote Sensing,Robot Tour (Trial),Rocks and Minerals,Swiftology (Trial),Troll Facts (Trial),Water Quality
+53,Stuyvesant High School,A,,New York,NY,,1,116,5,12,61,61,8,9,1,4,2,10,61,1,2,2,2,61,61,11,17,16,61,4,61,61,10
+55,Stuyvesant High School,C,,New York,NY,,2,130,9,7,61,61,3,6,11,9,5,6,61,15,15,16,3,61,61,2,1,6,61,12,61,3,4
+1,American High School,Blue,,Fremont,CA,,3,166,18,5,61,61,30,5,7,25,4,13,61,8,1,4,17,61,1,9,2,12,61,3,61,4,3
+31,Mountain View High School,Hehe,,Mountain View,CA,,4,167,4,1,61,61,4,1,2,8,1,2,61,61,3,1,1,61,61,1,7,8,61,1,2,5,61
+12,Brooklyn Technical High School,B,,Brooklyn,NY,,5,194,3,8,61,61,12,3,5,14,7,4,61,27,22,18,5,61,61,12,5,4,61,17,61,2,28
+6,BASIS Cedar Park,A,,Cedar Park,TX,,6,203,11,14,3,1,17,15,13,1,8,23,61,2,8,3,10,61,61,17,27,19,61,9,13,10,6
+11,Brooklyn Technical High School,A,,Brooklyn,NY,,7,206,2,3,61,61,7,13,21,10,3,3,61,31,19,14,12,61,61,7,13,7,61,19,4,61,22
+33,Mountain View High School,Zizi,,Mountain View,CA,,8,213,1,22,61,61,14,17,8,3,13,21,3,19,14,7,6,61,61,5,37,13,1,8,12,13,5
+20,Davidson Academy,Tungsten,,Reno,NV,,9,215,40,10,8,61,9,10,10,7,11,16,61,7,28,9,19,10,61,13,9,5,62,5,1,61,7
+38,North Carolina School of Science and Mathematics,V,,Durham,NC,,10,216,17,2,61,61,10,12,9,16,22,15,61,21,7,11,15,3,61,14,11,3,61,13,61,61,18
+32,Mountain View High School,QuQu,,Mountain View,CA,,11,250,10,9,61,61,21,21,6,5,10,14,1,12,5,61,4,61,61,16,10,9,61,22,6,61,15
+40,Northern Academy,Ultra Moon,,Middletown,NY,,12,291,16,25,61,61,19,25,12,11,17,26,2,18,24,19,11,1,61,8,21,11,61,14,61,61,14
+54,Stuyvesant High School,B,,New York,NY,,13,296,6,4,61,61,6,8,4,6,61,1,61,6,61,33,9,61,61,3,3,18,61,6,61,61,61
+48,Saint Francis High School,Brown,,Mountain View,CA,,14,319,12,17,6,61,18,7,3,23,27,30,61,5,17,17,30,8,9,19,20,20,61,31,11,9,23
+29,Jesuit High School,,,Portland,OR,,15,343,25,11,5,61,25,11,15,18,24,36,4,23,9,13,33,61,5,10,6,30,61,23,61,61,31
+13,Brooklyn Technical High School,C,,Brooklyn,NY,,16,344,14,6,61,61,11,4,61,12,12,11,61,61,20,61,8,61,61,15,14,10,61,11,61,7,13
+2,American High School,Red,,Fremont,CA,,17,371,27,13,61,61,16,23,17,26,15,25,61,14,25,21,22,61,61,23,33,24,61,28,61,61,19
+14,Castro Valley High School,,,Castro Valley,CA,,18,377,22,19,1,61,15,24,32,28,6,20,61,3,11,61,13,61,7,61,24,14,61,15,61,61,9
+47,Princeton Day School,,,Princeton,NJ,,19,378,15,36,4,5,24,29,28,13,18,33,6,20,35,8,28,5,9,18,16,27,7,10,61,61,20
+52,Stephen F. Austin High School,Dewanshination Domination,,Austin,TX,,20,380,21,15,7,61,23,14,16,20,9,9,61,61,32,6,24,61,4,31,36,15,2,16,61,61,32
+49,Saint Francis High School,Gold,,Mountain View,CA,,21,406,20,24,61,61,31,27,24,24,32,42,61,30,29,20,31,61,3,22,22,1,61,26,5,61,1
+26,Hendrickson High School,BearNye,,Pflugerville,TX,,22,452,19,16,2,4,29,16,29,38,23,32,61,61,27,15,26,7,61,24,15,28,61,29,61,61,25
+56,Theodore Roosevelt High School,,,San Antonio,TX,,23,462,26,37,9,2,27,30,23,22,21,37,5,22,26,10,32,6,2,27,32,31,5,32,8,61,27
+39,North Carolina School of Science and Mathematics,JV,,Durham,NC,,24,496,30,20,61,61,22,61,14,17,20,22,61,61,18,5,20,61,61,37,23,61,61,35,61,61,30
+3,American High School,White,,Fremont,CA,,25,499,38,31,61,61,34,22,20,30,30,29,61,25,31,25,29,61,61,32,30,21,61,34,61,61,38
+28,Ithaca High School,Red,,Ithaca,NY,,26,501,31,27,61,61,26,18,30,37,39,19,61,17,6,23,61,61,61,61,12,22,61,37,61,14,35
+5,Austin Area Homeschoolers,,,Austin,TX,,27,539,41,18,61,61,5,2,25,41,31,44,61,16,61,61,36,61,61,28,26,26,61,41,61,61,37
+45,Palo Alto High School,White,,Palo Alto,CA,,28,552,61,21,61,61,61,20,61,15,25,24,61,10,13,61,61,61,61,61,8,23,61,25,61,61,2
+50,Springfield High School,Blue,,Holland,OH,,29,553,32,40,61,3,37,31,31,31,36,41,61,26,30,12,34,9,61,30,39,29,6,38,61,61,36
+51,Springfield High School,White,,Holland,OH,,30,562,39,35,61,6,35,33,37,35,42,28,61,28,33,26,25,61,61,29,40,35,61,21,61,61,41
+18,Cypress Creek High School,A,,Houston,TX,,31,568,34,23,61,61,20,19,61,39,33,35,61,11,61,32,18,61,8,20,31,61,3,36,61,8,34
+9,Baton Rouge Magnet High School,2,,Baton Rouge,LA,,32,588,29,30,61,61,13,61,26,34,29,61,61,61,61,22,23,61,61,61,18,17,61,2,61,61,40
+60,Ward Melville High School,Varsity (*ᴗ͈ˬᴗ͈)ꕤ*.ﾟ,,East Setauket,NY,,33,590,8,61,61,61,2,61,61,2,61,5,61,61,10,61,16,61,61,61,25,61,61,18,61,61,16
+59,Ward Melville High School,JV Pong (❀˶ᵔ ᵕ ᵔ˶),,East Setauket,NY,,34,606,61,61,61,61,38,28,19,61,16,18,61,61,61,61,61,61,61,4,19,2,61,24,7,12,11
+57,Valley Christian High School,,,Cerritos,CA,,35,631,28,29,61,61,1,61,33,27,44,31,61,4,61,61,61,61,61,25,4,61,61,61,61,61,39
+7,BASIS Cedar Park,B,,Cedar Park,TX,,36,649,61,61,61,61,36,26,61,19,38,43,61,29,34,28,21,61,61,61,61,25,61,33,10,61,12
+8,Baton Rouge Magnet High School,1,,Baton Rouge,LA,,37,669,13,32,61,61,61,61,61,61,26,8,61,61,4,61,14,61,61,6,61,61,61,61,61,61,17
+23,Freeman High School,,,Katy,TX,,38,674,43,39,61,61,33,32,36,36,40,34,61,61,36,29,37,61,61,34,41,61,61,40,61,61,42
+44,Palo Alto High School,Green,,Palo Alto,CA,,39,683,7,61,61,61,61,61,61,61,19,7,61,9,16,61,61,61,61,61,61,61,61,7,61,61,8
+58,Ward Melville High School,JV Ping ദ്ദി ( ᵔ ᗜ ᵔ ),,East Setauket,NY,,40,701,33,42,61,61,61,61,61,33,14,12,8,61,23,61,7,4,61,61,61,61,4,20,15,11,29
+15,Cedar Park High School,1,,Cedar Park,TX,,41,740,36,26,61,61,61,61,38,32,37,38,61,61,61,31,38,61,61,61,38,61,61,39,61,61,21
+41,Northern Academy,Ultra Sun,,Middletown,NY,,42,746,23,34,61,61,61,61,27,42,34,61,61,61,61,30,27,2,61,35,34,33,61,61,61,61,61
+24,Grapevine High School,A,,Grapevine,TX,,43,756,24,33,61,61,32,61,22,61,61,61,61,61,12,61,61,61,61,61,28,61,61,30,9,1,26
+16,Cedar Park High School,2,,Cedar Park,TX,,44,774,61,28,61,61,61,34,35,61,61,17,61,61,61,24,61,61,61,21,61,61,61,42,61,61,24
+61,Wyoming High School,Blue,,Wyoming,OH,,45,796,37,41,61,61,28,61,61,40,28,40,61,61,61,27,61,61,61,61,61,34,61,61,61,61,33
+19,Cypress Creek High School,B,,Houston,TX,,46,842,61,61,61,61,61,61,34,61,35,39,61,24,61,61,35,61,61,33,61,32,61,61,61,61,61
+43,Palo Alto High School,Black,,Palo Alto,CA,,47,847,61,61,61,61,61,61,18,21,61,61,61,61,21,61,61,61,61,26,29,61,61,61,61,61,61
+25,Grapevine High School,B,,Grapevine,TX,,48,868,35,38,61,61,61,61,61,29,41,27,61,61,61,61,61,61,61,61,61,61,61,27,3,6,61
+4,Arcadia Public Schools,Huskies,,Arcadia,NE,,49,913,42,61,61,61,61,61,39,61,43,45,61,61,37,61,61,61,61,36,61,61,61,61,14,15,61
+10,Baton Rouge Magnet High School,3,,Baton Rouge,LA,,50,963,61,61,61,61,61,61,61,61,61,61,7,13,61,61,61,61,6,61,35,61,61,61,61,61,61
+17,Chadron High School,,,Chadron,NE,,51,1037,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61
+21,Lawrence E. Elkins High School,1,,Missouri City,TX,,51,1037,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61
+22,Lawrence E. Elkins High School,2,,Missouri City,TX,,51,1037,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61
+27,Hendrickson High School,ManiMarg,,Pflugerville,TX,,51,1037,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61
+34,Nogales High School,A,,La Puente,CA,,51,1037,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61
+35,Nogales High School,B,,La Puente,CA,,51,1037,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61
+36,Nogales High School,3,,La Puente,CA,,51,1037,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61
+37,Nogales High School,4,,La Puente,CA,,51,1037,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61
+42,Norwell High School,,,Ossian,IN,,51,1037,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61
+46,Panther Creek High School,,,Frisco,TX,,51,1037,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,61

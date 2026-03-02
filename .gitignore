@@ -13,3 +13,5 @@ logs/
 *.bak
 *.swp
 dist/**
+local_docs/**/*
+local_docs/**

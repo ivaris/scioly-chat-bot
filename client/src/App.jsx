@@ -43,7 +43,7 @@ export default function App() {
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
 
-  const [topics, setTopics] = useState(['forensics', 'designer genes'])
+  const [topics, setTopics] = useState(['forensics', 'designer genes', 'scioly results'])
   const [topic, setTopic] = useState('forensics')
 
   const [provider, setProvider] = useState('openai')
@@ -218,7 +218,7 @@ export default function App() {
   const send = async () => {
     if (!input.trim()) return
     if (!topic) {
-      setMessages((prev) => [...prev, { role: 'assistant', content: "Please select a topic ('forensics' or 'designer genes') before chatting." }])
+      setMessages((prev) => [...prev, { role: 'assistant', content: "Please select a topic ('forensics', 'designer genes', or 'scioly results') before chatting." }])
       return
     }
     const userMsg = { role: 'user', content: input }

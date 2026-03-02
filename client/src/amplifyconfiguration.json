@@ -28,9 +28,9 @@
   "data": {
     "url": "https://4vf5q2rr7bdjlmwuof2cfg7z4m.appsync-api.us-west-2.amazonaws.com/graphql",
     "aws_region": "us-west-2",
-    "default_authorization_type": "AWS_IAM",
+    "default_authorization_type": "AMAZON_COGNITO_USER_POOLS",
     "authorization_types": [
-      "AMAZON_COGNITO_USER_POOLS"
+      "AWS_IAM"
     ],
     "model_introspection": {
       "version": 1,
@@ -138,6 +138,82 @@
             "primaryKeyFieldName": "id",
             "sortKeyFieldNames": []
           }
+        },
+        "AppConfig": {
+          "name": "AppConfig",
+          "fields": {
+            "id": {
+              "name": "id",
+              "isArray": false,
+              "type": "ID",
+              "isRequired": true,
+              "attributes": []
+            },
+            "key": {
+              "name": "key",
+              "isArray": false,
+              "type": "String",
+              "isRequired": true,
+              "attributes": []
+            },
+            "provider": {
+              "name": "provider",
+              "isArray": false,
+              "type": "String",
+              "isRequired": true,
+              "attributes": []
+            },
+            "createdAt": {
+              "name": "createdAt",
+              "isArray": false,
+              "type": "AWSDateTime",
+              "isRequired": false,
+              "attributes": [],
+              "isReadOnly": true
+            },
+            "updatedAt": {
+              "name": "updatedAt",
+              "isArray": false,
+              "type": "AWSDateTime",
+              "isRequired": false,
+              "attributes": [],
+              "isReadOnly": true
+            }
+          },
+          "syncable": true,
+          "pluralName": "AppConfigs",
+          "attributes": [
+            {
+              "type": "model",
+              "properties": {}
+            },
+            {
+              "type": "auth",
+              "properties": {
+                "rules": [
+                  {
+                    "groupClaim": "cognito:groups",
+                    "provider": "userPools",
+                    "allow": "groups",
+                    "groups": [
+                      "admin"
+                    ],
+                    "operations": [
+                      "create",
+                      "update",
+                      "delete",
+                      "read"
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "primaryKeyInfo": {
+            "isCustomPrimaryKey": false,
+            "primaryKeyFieldName": "id",
+            "sortKeyFieldNames": []
+          }
         }
       },
       "enums": {},
@@ -199,9 +275,29 @@
               "attributes": []
             }
           }
+        },
+        "LlmProvider": {
+          "name": "LlmProvider",
+          "fields": {
+            "provider": {
+              "name": "provider",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            }
+          }
         }
       },
       "queries": {
+        "getLlmProvider": {
+          "name": "getLlmProvider",
+          "isArray": false,
+          "type": {
+            "nonModel": "LlmProvider"
+          },
+          "isRequired": false
+        },
         "documentsTopics": {
           "name": "documentsTopics",
           "isArray": false,
@@ -226,12 +322,6 @@
               "type": "String",
               "isRequired": true
             },
-            "provider": {
-              "name": "provider",
-              "isArray": false,
-              "type": "String",
-              "isRequired": false
-            },
             "topic": {
               "name": "topic",
               "isArray": false,
@@ -253,17 +343,19 @@
               "isArray": false,
               "type": "String",
               "isRequired": true
-            },
-            "provider": {
-              "name": "provider",
-              "isArray": false,
-              "type": "String",
-              "isRequired": false
             }
           }
         },
         "documentsPreprocess": {
           "name": "documentsPreprocess",
+          "isArray": false,
+          "type": {
+            "nonModel": "OperationStatus"
+          },
+          "isRequired": false
+        },
+        "setLlmProvider": {
+          "name": "setLlmProvider",
           "isArray": false,
           "type": {
             "nonModel": "OperationStatus"
@@ -274,7 +366,7 @@
               "name": "provider",
               "isArray": false,
               "type": "String",
-              "isRequired": false
+              "isRequired": true
             }
           }
         }

@@ -72,7 +72,25 @@ const TOPIC_KEYWORDS: Record<string, string[]> = {
     'gene', 'genes', 'genetic', 'genome', 'dna', 'crispr', 'gmo', 'editing',
     'mutation', 'heredity', 'chromosome', 'allele', 'biotech',
   ],
+  'scioly results': [
+    'scioly', 'science olympiad', 'results', 'ranking', 'rankings', 'score',
+    'scores', 'team', 'teams', 'tournament', 'regional', 'invitational',
+    'state', 'nationals', 'medal', 'bids',
+  ],
 };
+
+function getTopicInstruction(topic: string): string {
+  if (topic === 'scioly results') {
+    return [
+      'You are analyzing Science Olympiad results and trends.',
+      'Treat each school-team label as a unique team identity.',
+      'If a school has multiple teams (for example "School Team A" and "School Team B"), keep them separate in all comparisons.',
+      'Do not merge Team A and Team B scores unless the user explicitly asks for a combined rollup.',
+      'When discussing trends, prioritize concrete score/rank changes over time and explicitly call out which exact team each trend belongs to.',
+    ].join(' ');
+  }
+  return '';
+}
 
 function isSafeImageTerm(term: string): boolean {
   const t = term.toLowerCase();
@@ -178,8 +196,8 @@ export const handler: Schema['chat']['functionHandler'] = async (event) => {
     const provider = await getConfiguredProvider();
     const messages = JSON.parse(messagesJson || '[]') as ChatMessage[];
     if (!messages || !Array.isArray(messages)) return { error: 'messages array required' };
-    const ALLOWED_TOPICS = ['forensics', 'designer genes'];
-    const DEFAULT_REPLY = `Please select a topic (forensics or designer genes) before chatting.`;
+    const ALLOWED_TOPICS = ['forensics', 'designer genes', 'scioly results'];
+    const DEFAULT_REPLY = `Please select a topic (forensics, designer genes, or scioly results) before chatting.`;
     if (!topic || !ALLOWED_TOPICS.includes(topic)) {
       return { reply: DEFAULT_REPLY };
     }
@@ -195,7 +213,11 @@ export const handler: Schema['chat']['functionHandler'] = async (event) => {
     }
 
     const contexts = await retrieveContext(topic, userQuery, 4, provider);
-    const systemContext = contexts.length ? `Context from documents:\n${contexts.join('\n---\n')}` : '';
+    const topicInstruction = getTopicInstruction(topic);
+    const systemParts: string[] = [];
+    if (topicInstruction) systemParts.push(topicInstruction);
+    if (contexts.length) systemParts.push(`Context from documents:\n${contexts.join('\n---\n')}`);
+    const systemContext = systemParts.join('\n\n');
     const payloadMessages: any[] = [];
     if (systemContext) payloadMessages.push({ role: 'system', content: systemContext });
     for (const m of messages) payloadMessages.push(m);

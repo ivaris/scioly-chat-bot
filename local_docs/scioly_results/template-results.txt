@@ -1,0 +1,15 @@
+Science Olympiad Results Template
+
+Use one line per team per tournament so Team A and Team B stay separate.
+Format:
+<date> | <tournament> | <division> | <school> Team <A/B/...> | overall_rank=<n> | overall_score=<n>
+
+Example rows:
+2025-11-09 | River Valley Invitational | B | Lincoln Middle School Team A | overall_rank=3 | overall_score=142
+2025-11-09 | River Valley Invitational | B | Lincoln Middle School Team B | overall_rank=11 | overall_score=267
+2025-12-07 | Central Regional | B | Lincoln Middle School Team A | overall_rank=2 | overall_score=128
+2025-12-07 | Central Regional | B | Lincoln Middle School Team B | overall_rank=9 | overall_score=241
+
+Optional event details (same team, same tournament):
+<date> | <tournament> | <school> Team <A/B/...> | event=<event_name> | place=<n>
+

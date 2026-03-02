@@ -1,0 +1,463 @@
+number,school,team,exhibition,city,state,track,rank,total,Anatomy and Physiology,Astronomy,Chemistry Lab,Circuit Lab,Codebusters,Designer Genes,Disease Detectives,Dynamic Planet,Engineering CAD,Entomology,Forensics,Machines,Materials Science,Remote Sensing,Rocks and Minerals,Science in the News (Trial),Water Quality
+173,Palo Alto High School,Green,,Palo Alto,CA,Combined,1,263,26,1,6,2,9,15,16,13,11,10,6,28,7,34,39,232,40
+129,Marquette University High School,,,Milwaukee,WI,Combined,2,299,11,4,28,33,4,2,3,5,99,3,17,22,28,16,7,232,17
+57,Davidson Academy,,,Reno,NV,Combined,3,410,57,10,12,43,11,86,41,8,16,68,17,3,13,8,12,232,5
+20,Archimedean Upper Conservatory,Alpha,,Miami,FL,Combined,4,445,15,53,46,11,10,4,31,41,34,11,14,22,46,13,43,17,51
+122,Liberal Arts and Science Academy,Neutron,,Austin,TX,Combined,5,459,66,7,51,5,3,7,78,25,120,8,40,17,1,2,27,232,2
+10,Amador Valley High School,1,,Pleasanton,CA,Combined,6,484,34,3,9,3,17,43,73,20,94,9,62,7,45,3,41,232,21
+15,American High School,,,Fremont,CA,Combined,7,502,44,47,35,9,15,46,19,59,78,1,19,22,48,48,8,16,4
+244,C.G. Woodson High School,Leviathan,,Fairfax,VA,Combined,8,580,5,36,80,64,28,33,8,37,6,30,25,93,42,54,36,7,3
+160,Northwood High School,Silver,,Irvine,CA,Combined,9,587,8,6,173,58,7,40,29,29,3,33,1,17,141,5,11,6,26
+142,Mountain House High School,Sapphire,,Mountain House,CA,Combined,10,618,21,32,65,77,12,11,7,56,14,33,99,46,29,33,28,232,55
+27,BASIS Independent Silicon Valley,,,San Jose,CA,Combined,11,627,12,43,32,15,40,21,2,4,231,31,50,12,6,63,9,232,56
+85,Fulton County Schools Innovation Academy,T-Rex,,Alpharetta,GA,Combined,12,648,49,9,57,71,31,17,55,31,82,25,34,46,29,22,70,232,20
+38,Bridgeland High School,Orange,,Cypress,TX,Combined,13,723,17,13,82,22,108,9,39,28,41,185,29,40,62,15,6,2,27
+188,River City Science Academy Middle-High School,RaTs,,Jacksonville,FL,Combined,14,744,39,45,167,73,67,27,44,62,5,15,11,17,23,105,36,232,8
+24,BASIS Cedar Park,A,,Cedar Park,TX,Combined,15,748,68,50,63,27,39,19,74,83,12,41,53,17,67,44,18,232,73
+217,Bronx High School of Science,,,Bronx,NY,Combined,16,767,44,57,57,24,27,17,98,15,32,98,51,83,2,39,21,39,102
+239,Westview High School,,,Portland,OR,Combined,17,790,20,18,51,28,51,51,21,52,67,115,36,32,19,9,161,232,59
+11,Amador Valley High School,2,,Pleasanton,CA,Combined,18,807,124,30,32,38,22,76,34,39,154,5,13,83,54,21,32,232,50
+220,The Frazer School,3-Bet,,Gainesville,FL,Combined,19,828,12,20,18,12,37,5,232,7,13,80,45,49,57,4,5,232,232
+238,Westlake High School,,,Austin,TX,Combined,20,830,30,2,118,18,83,68,1,8,103,66,71,28,63,49,99,232,23
+159,Northwood High School,Navy,,Irvine,CA,Combined,21,835,16,147,83,17,8,19,10,132,33,59,5,40,142,51,16,232,57
+174,Palo Alto High School,White,,Palo Alto,CA,Combined,22,841,89,35,70,64,13,25,92,26,4,52,43,86,97,38,58,232,49
+102,James S. Rickards High School,1,,Tallahassee,FL,Combined,23,913,113,66,31,92,25,21,86,41,54,110,20,118,25,67,28,232,16
+56,Chattahoochee High School,3,,Johns Creek,GA,Combined,24,925,63,79,73,51,29,57,103,30,23,62,112,65,82,6,21,232,69
+62,Eagan High School,,,Eagan,MN,Combined,25,934,51,21,132,152,54,37,4,6,19,92,104,34,107,16,46,232,59
+215,Sunset High School,,,Portland,OR,Combined,26,979,41,8,178,91,63,86,9,54,128,108,60,8,17,99,28,232,1
+12,Amador Valley High School,3,,Pleasanton,CA,Combined,27,1004,78,64,59,92,59,51,45,41,76,99,49,6,36,73,98,232,78
+21,Archimedean Upper Conservatory,Beta,,Miami,FL,Combined,28,1009,62,27,39,76,86,73,64,71,46,21,48,80,79,70,93,18,74
+164,Olentangy Orange High School,1,,Lewis Center,OH,Combined,29,1035,167,66,62,6,93,3,43,161,36,19,149,2,25,46,104,232,53
+161,Northwood High School,White,,Irvine,CA,Combined,30,1040,7,134,23,123,21,21,6,232,55,50,24,59,31,55,133,232,66
+130,McCallie School,A,,Chattanooga,TN,Combined,31,1047,57,11,1,148,45,64,58,74,111,75,26,40,33,107,102,232,95
+224,Westminster Schools,,,Atlanta,GA,Combined,32,1065,37,232,39,142,62,102,69,10,79,61,42,22,72,29,1,232,66
+25,BASIS Chandler,1,,Chandler,AZ,Combined,33,1088,37,74,18,36,36,51,130,17,147,4,28,73,75,104,130,232,128
+206,Spruce Creek High School,Orange,,Port Orange,FL,Combined,34,1110,55,33,111,62,48,46,12,75,95,140,47,133,32,36,144,9,41
+135,Monta Vista High School,Blue,,Cupertino,CA,Combined,35,1111,19,21,2,7,1,81,24,1,8,232,232,1,9,9,232,232,232
+41,Brookwood High School,C,,Snellville,GA,Combined,36,1137,71,84,77,104,55,118,36,113,31,72,80,68,85,45,73,232,25
+229,Vestal High School,Green,,Vestal,NY,Combined,37,1139,25,17,7,68,37,1,134,34,231,38,127,80,114,107,110,45,9
+32,Blue Valley North High School,Blue,,Overland Park,KS,Combined,38,1139,152,45,3,19,14,10,24,114,90,42,35,232,41,58,232,44,28
+233,Walton High School,B,,Marietta,GA,Combined,39,1140,27,48,106,10,70,102,15,110,83,86,10,40,16,73,165,232,179
+242,C.G. Woodson High School,Hydra,,Fairfax,VA,Combined,40,1142,60,31,23,125,96,60,75,70,110,65,22,114,90,154,33,28,14
+99,Ithaca High School,Red,,Ithaca,NY,Combined,41,1158,128,65,100,71,101,60,22,87,96,53,118,10,4,118,90,232,35
+71,Evergreen Valley High School,Teal,,San Jose,CA,Combined,42,1160,30,75,17,14,141,44,45,23,231,91,2,31,150,124,44,232,98
+39,Brookwood High School,A,,Snellville,GA,Combined,43,1161,113,93,55,45,30,106,124,24,123,29,59,34,137,87,96,232,6
+28,BASIS Independent Fremont,Primase,,Fremont,CA,Combined,44,1165,47,38,11,82,23,33,72,172,72,190,41,53,11,71,82,232,167
+232,Walton High School,A,,Marietta,GA,Combined,45,1170,135,37,133,59,72,174,106,101,15,26,37,68,81,79,10,232,37
+140,Mountain House High School,Obsidian,,Mountain House,CA,Combined,46,1170,30,61,103,35,20,86,51,188,24,119,99,142,119,19,26,232,48
+40,Brookwood High School,B,,Snellville,GA,Combined,47,1181,135,107,60,83,47,90,31,76,44,57,73,50,129,87,50,232,62
+5,Albany High School,White,,Albany,CA,Combined,48,1185,154,44,160,92,49,78,45,50,112,5,55,109,40,84,19,232,89
+74,Florida Atlantic University High School,Burrowing,,Boca Raton,FL,Combined,49,1198,104,104,38,111,83,110,56,129,150,40,16,83,10,46,61,232,57
+92,"Gwinnett School of Mathematics, Science, and Technology",1,,Lawrenceville,GA,Combined,50,1201,14,83,45,60,100,92,53,48,107,59,111,74,100,94,56,232,105
+93,"Gwinnett School of Mathematics, Science, and Technology",2,,Lawrenceville,GA,Combined,51,1202,97,69,42,128,64,157,24,131,69,118,82,59,35,20,94,232,13
+222,The Frazer School,Big Blind,,Gainesville,FL,Combined,52,1206,40,29,18,61,33,33,79,232,141,102,68,59,22,232,25,232,32
+179,Queens High School for the Sciences at York College,,,Queens,NY,Combined,53,1220,96,91,25,87,68,37,113,54,231,12,57,68,18,73,126,232,64
+13,Amador Valley High School,4,,Pleasanton,CA,Combined,54,1253,99,92,34,114,131,64,49,82,22,78,29,28,117,60,115,232,139
+37,Bridgeland High School,Blue,,Cypress,TX,Combined,55,1290,23,59,232,36,19,8,62,14,131,182,7,34,104,43,137,232,199
+4,Albany High School,Red,,Albany,CA,Combined,56,1314,46,158,99,137,42,98,19,143,28,47,63,137,78,61,65,232,93
+26,BASIS Chandler,2,,Chandler,AZ,Combined,57,1319,28,71,22,41,112,106,57,72,119,93,77,119,48,112,135,232,107
+14,American Heritage School - Palm Beach,,,Delray Beach,FL,Combined,58,1322,129,12,76,135,53,84,98,104,100,18,141,15,87,103,47,232,120
+221,The Frazer School,All In,,Gainesville,FL,Combined,59,1332,109,232,10,42,90,169,28,27,108,232,86,68,43,12,4,232,72
+165,Olentangy Orange High School,2,,Lewis Center,OH,Combined,60,1347,171,56,128,19,145,12,108,45,74,68,113,13,24,23,163,232,185
+137,Monta Vista High School,Yellow,,Cupertino,CA,Combined,61,1348,51,5,232,57,6,29,232,44,49,7,232,232,80,1,14,232,77
+235,Walton High School,D,,Marietta,GA,Combined,62,1349,43,105,156,125,41,86,142,33,114,77,109,53,39,127,13,5,86
+202,South Forsyth High School,Pizza,,Cumming,GA,Combined,63,1351,54,82,157,141,153,14,79,40,48,89,94,107,67,71,90,232,65
+234,Walton High School,C,,Marietta,GA,Combined,64,1354,101,88,35,140,24,134,121,16,132,27,135,109,20,39,36,232,197
+126,Livingston High School,Theodore,,Livingston,NJ,Combined,65,1374,42,73,79,23,107,76,149,83,127,113,82,130,83,39,63,20,105
+136,Monta Vista High School,Red,,Cupertino,CA,Combined,66,1398,23,232,4,51,26,24,13,232,1,2,9,232,232,232,14,232,71
+128,Manhattan High School,Varsity,,Manhattan,KS,Combined,67,1403,111,117,51,124,58,154,142,130,106,81,52,17,73,87,54,232,46
+48,Castro Valley High School,,,Castro Valley,CA,Combined,68,1420,79,137,117,67,32,161,94,58,85,14,32,75,155,73,137,49,104
+154,Northern Academy of the Arts,A,,Middletown,NY,Combined,69,1422,125,124,51,232,56,131,127,48,232,100,21,59,34,26,28,232,28
+88,Fulton Science Academy,Dino Nuggets,,Alpharetta,GA,Combined,70,1432,36,160,49,104,61,158,165,99,88,33,101,27,60,117,90,232,84
+69,Evergreen Valley High School,Black,,San Jose,CA,Combined,71,1442,107,131,75,80,150,51,29,139,89,37,56,123,148,39,122,232,66
+201,South Forsyth High School,Pine,,Cumming,GA,Combined,72,1443,103,42,47,16,92,33,14,66,37,197,74,97,232,141,120,232,132
+243,C.G. Woodson High School,Kraken,,Fairfax,VA,Combined,73,1445,47,68,84,143,65,113,18,38,126,97,89,161,50,139,81,14,126
+156,Northview High School,1,,Johns Creek,GA,Combined,74,1452,55,34,21,154,74,72,53,109,231,122,26,86,164,105,24,232,122
+124,Livingston High School,Alvin,,Livingston,NJ,Combined,75,1452,22,119,26,55,50,163,163,22,45,104,96,39,64,130,188,23,166
+54,Chattahoochee High School,1,,Johns Creek,GA,Combined,76,1466,140,127,15,81,74,102,59,119,18,27,110,34,122,118,172,232,148
+86,Fulton Science Academy,Hurricane Hunters,,Alpharetta,GA,Combined,77,1468,116,25,232,90,46,48,154,115,105,31,147,40,67,31,184,232,37
+158,Northview High School,3,,Johns Creek,GA,Combined,78,1518,10,232,13,101,157,113,67,46,232,56,66,34,58,232,86,232,15
+63,East Coweta High School,Gold,,Sharpsburg,GA,Combined,79,1546,139,49,39,19,88,151,102,81,71,146,88,157,59,35,159,42,163
+227,Upper Arlington High School,Gold,,Upper Arlington,OH,Combined,80,1548,181,96,49,87,82,144,116,90,232,24,121,67,74,94,79,232,12
+125,Livingston High School,Simon,,Livingston,NJ,Combined,81,1559,188,14,177,161,113,102,89,12,125,78,64,99,153,50,33,13,101
+55,Chattahoochee High School,2,,Johns Creek,GA,Combined,82,1584,75,180,87,68,111,128,62,149,87,22,116,93,86,31,181,232,108
+187,River City Science Academy Middle-High School,RaPtors,,Jacksonville,FL,Combined,83,1591,127,97,180,84,95,48,61,78,231,93,57,119,144,61,33,41,83
+73,Florida Atlantic University High School,Barn,,Boca Raton,FL,Combined,84,1606,84,75,136,102,156,140,92,108,38,75,39,146,65,134,128,232,88
+82,Fulshear High School,Purple,,Fulshear,TX,Combined,85,1626,67,140,101,116,109,51,146,127,140,136,86,139,150,14,68,10,36
+107,James S. Rickards High School,6,,Tallahassee,FL,Combined,86,1626,70,142,43,47,98,98,40,122,116,50,161,140,148,127,80,232,144
+103,James S. Rickards High School,2,,Tallahassee,FL,Combined,87,1631,92,173,55,146,80,111,84,147,68,105,135,126,114,65,89,232,41
+67,El Dorado High School,1,,Placentia,CA,Combined,88,1634,115,54,67,118,35,48,68,155,30,117,101,180,128,113,153,33,152
+64,East Coweta High School,Purple,,Sharpsburg,GA,Combined,89,1638,121,52,175,97,143,168,162,11,151,103,125,75,136,53,48,50,18
+134,Mentor High School,Red,,Mentor,OH,Combined,90,1644,49,23,150,38,106,154,5,164,47,48,232,52,232,232,101,43,11
+22,Archimedean Upper Conservatory,Gamma,,Miami,FL,Combined,91,1663,156,120,15,73,140,81,175,80,66,88,92,144,135,113,94,232,91
+121,Liberal Arts and Science Academy,Electron,,Austin,TX,Combined,92,1668,232,15,123,48,2,232,69,68,231,68,23,32,232,58,3,20,232
+172,Palo Alto High School,Black,,Palo Alto,CA,Combined,93,1675,72,90,146,95,43,106,145,177,25,71,85,75,97,91,188,232,169
+75,Florida Atlantic University High School,Oranges,,Boca Raton,FL,Combined,94,1692,176,108,140,152,125,60,127,35,104,64,89,131,126,23,73,232,159
+87,Fulton Science Academy,Mega Squirrels,,Alpharetta,GA,Combined,95,1703,173,232,14,25,5,57,11,118,98,232,2,4,36,232,232,232,232
+123,Liberal Arts and Science Academy,Proton,,Austin,TX,Combined,96,1720,4,100,67,173,16,232,104,50,117,196,232,232,3,174,2,232,18
+138,Moorestown Friends School,1,,Moorestown,NJ,Combined,97,1737,105,51,171,43,119,173,101,46,75,153,148,165,102,29,123,31,133
+200,South Forsyth High School,Apple,,Cumming,GA,Combined,98,1738,107,89,145,85,99,67,83,96,93,127,163,135,173,57,85,46,134
+42,Brookwood High School,D,,Snellville,GA,Combined,99,1740,80,157,232,177,44,42,116,56,113,124,176,128,94,51,107,232,43
+84,Fulton County Schools Innovation Academy,Pterodactyl,,Alpharetta,GA,Combined,100,1747,121,77,131,157,52,144,50,21,122,111,232,108,5,142,160,232,114
+110,Johns Creek High School,A,,Johns Creek,GA,Combined,101,1761,175,111,85,144,117,128,196,140,7,17,67,113,145,86,112,53,118
+157,Northview High School,2,,Johns Creek,GA,Combined,102,1797,146,131,8,54,66,134,159,63,232,55,107,103,106,99,102,232,232
+143,Mt. Lebanon High School,Blue,,Pittsburgh,PA,Combined,103,1832,205,129,139,12,69,170,65,157,231,106,103,16,159,91,146,1,34
+81,Fulshear High School,Black,,Fulshear,TX,Combined,104,1843,63,153,142,232,129,28,163,98,139,109,193,95,70,82,73,232,74
+94,"Gwinnett School of Mathematics, Science, and Technology",3,,Lawrenceville,GA,Combined,105,1852,75,101,89,48,165,175,86,92,231,167,152,114,77,159,82,232,39
+205,Spruce Creek High School,Black,,Port Orange,FL,Combined,106,1859,63,163,148,179,124,29,33,168,52,142,132,177,55,121,176,11,97
+223,The Frazer School,Pocket Aces,,Gainesville,FL,Combined,107,1864,232,55,232,28,232,73,232,232,92,45,124,5,232,11,17,232,22
+245,Lincoln Science Focus Program High School,,,Lincoln,NE,Combined,108,1870,80,38,91,26,154,78,113,156,232,120,169,169,166,27,107,232,144
+109,John S. Davidson Fine Arts Magnet School,,,Augusta,GA,Combined,109,1870,109,103,108,184,97,39,111,135,149,169,153,148,156,27,65,24,117
+155,Northern Academy of the Arts,B,,Middletown,NY,Combined,110,1877,176,24,112,77,71,179,86,69,232,81,46,144,134,129,146,232,171
+189,River Ridge High School,A,,Woodstock,GA,Combined,111,1879,133,62,137,32,127,113,118,77,135,144,158,124,169,7,232,232,111
+141,Mountain House High School,Pearl,,Mountain House,CA,Combined,112,1889,99,72,142,160,80,180,138,116,70,158,130,151,163,93,76,232,61
+226,Upper Arlington High School,Black,,Upper Arlington,OH,Combined,113,1898,173,192,109,170,73,57,125,123,231,36,166,124,158,63,65,232,33
+214,Stratford Preparatory School,,,San Jose,CA,Combined,114,1912,183,58,110,96,131,139,66,78,152,187,139,75,95,122,154,232,127
+150,North Gwinnett High School,A,,Suwanee,GA,Combined,115,1924,118,98,70,172,131,68,98,150,77,177,128,152,167,124,150,232,44
+83,Fulton County Schools Innovation Academy,Megalosaurus,,Alpharetta,GA,Combined,116,1937,91,115,232,115,79,84,85,64,232,143,98,59,133,232,130,232,45
+23,BASIS Cedar Park,B,,Cedar Park,TX,Combined,117,1938,2,122,48,33,34,12,232,190,232,232,61,232,83,232,112,232,81
+111,Johns Creek High School,B,,Johns Creek,GA,Combined,118,1943,3,110,114,106,148,232,38,19,40,175,122,232,174,232,52,8,146
+169,Olentangy Orange High School,6,,Lewis Center,OH,Combined,119,1951,80,133,94,187,91,113,126,101,20,232,132,65,75,83,187,232,232
+30,BASIS Peoria,,,Peoria,AZ,Combined,120,1972,1,121,95,100,166,63,148,175,59,178,178,183,110,232,139,20,24
+53,Central York High School,2,,York,PA,Combined,121,2000,189,130,165,150,154,64,35,85,143,73,195,164,154,130,50,19,119
+89,Fulton Science Academy,Zombie Ducks,,Alpharetta,GA,Combined,122,2021,192,19,232,1,174,232,232,182,86,49,171,9,38,36,232,232,136
+118,Lambert High School,Alpha,,Suwanee,GA,Combined,123,2022,68,40,5,232,157,106,16,88,232,232,232,53,27,232,232,232,70
+59,Decatur High School,2,,Decatur,GA,Combined,124,2025,232,140,175,232,56,94,138,32,101,43,232,86,232,16,186,232,30
+207,Spruce Creek High School,White,,Port Orange,FL,Combined,125,2048,34,189,152,30,174,197,179,95,9,131,191,166,232,65,53,25,151
+52,Central York High School,1,,York,PA,Combined,126,2051,116,180,140,191,149,134,71,144,62,112,77,152,111,153,71,2,188
+98,Ithaca High School,Gold,,Ithaca,NY,Combined,127,2069,147,78,198,75,130,131,133,140,84,130,189,161,108,143,72,232,150
+96,Hoover High School,,,Hoover,AL,Combined,128,2081,194,182,163,122,157,51,81,136,129,151,146,92,125,94,60,40,198
+19,Archimedean Upper Conservatory,Delta,,Miami,FL,Combined,129,2084,191,40,28,232,18,6,186,124,232,157,135,119,120,232,171,4,93
+31,BASIS Pflugerville,,,Pflugerville,TX,Combined,130,2088,172,164,86,112,173,70,197,232,64,126,53,99,88,124,232,232,96
+236,West Forsyth High School,Blue,,Cumming,GA,Combined,131,2088,95,149,64,128,139,94,168,181,148,149,187,126,97,145,107,232,111
+145,Mt. Lebanon High School,White,,Pittsburgh,PA,Combined,132,2097,147,189,107,51,109,98,119,163,232,180,70,22,232,99,154,27,125
+152,North Gwinnett High School,C,,Suwanee,GA,Combined,133,2098,72,139,138,166,116,142,76,162,232,125,177,46,14,161,176,232,156
+78,Forsyth Central High School,Red,,Cumming,GA,Combined,134,2109,141,158,116,185,174,15,23,3,124,174,181,232,12,107,232,232,232
+51,Central High School,Maroon,,Carrollton,GA,Combined,135,2118,57,183,187,151,174,191,45,90,137,107,105,135,113,172,140,47,131
+180,Richard Montgomery High School,A,,Rockville,MD,Combined,136,2121,18,171,182,107,169,148,178,94,232,144,206,182,56,97,55,232,82
+192,Rockdale Magnet School for Science and Technology,Gold,,Conyers,GA,Combined,137,2121,89,102,168,164,142,78,94,93,145,95,138,173,162,167,150,36,161
+218,The College Preparatory School,Cougars,,Oakland,CA,Combined,138,2155,135,26,91,55,136,134,77,18,232,232,123,53,147,232,232,34,232
+151,North Gwinnett High School,B,,Suwanee,GA,Combined,139,2164,156,151,77,168,174,98,193,103,65,186,118,109,15,165,232,232,154
+250,Monta Vista High School,7,,Cupertino,CA,Combined,140,2167,232,16,28,232,232,127,27,232,80,54,81,232,232,232,21,232,109
+209,Saint Francis Catholic High School,Ruby,,Sacramento,CA,Combined,141,2173,200,196,102,165,115,158,112,192,61,140,120,147,124,133,61,232,147
+251,Monta Vista High School,8,,Cupertino,CA,Combined,142,2183,6,232,179,232,232,40,41,232,144,12,8,122,232,232,232,232,7
+196,Savannah Christian Preparatory School,A,,Savannah,GA,Combined,143,2183,119,63,37,145,166,123,175,140,138,179,192,40,116,150,168,31,232
+183,Richard Montgomery High School,D,,Rockville,MD,Combined,144,2183,155,136,125,107,174,120,115,138,232,129,197,101,51,113,115,232,175
+2,Albany High School,Green,,Albany,CA,Combined,145,2185,88,191,190,103,128,181,151,73,146,23,168,160,161,156,128,232,138
+139,Moorestown Friends School,Foxes,,Moorestown,NJ,Combined,146,2195,192,60,147,162,146,125,120,64,232,101,106,154,159,232,141,232,54
+72,Fairfield County Homeschoolers,,,Redding,CT,Combined,147,2209,33,168,105,232,232,125,60,232,51,175,4,232,47,232,49,232,232
+65,East Mecklenburg High School,Varsity,,Charlotte,NC,Combined,148,2210,170,155,104,62,76,198,136,184,232,84,140,150,44,164,158,232,153
+133,Mentor High School,Gray,,Mentor,OH,Combined,149,2232,87,154,232,77,77,111,198,61,58,188,165,232,132,166,117,232,177
+241,Wheeler High School,Gold,,Marietta,GA,Combined,150,2236,232,232,61,107,118,232,232,134,91,232,156,53,61,140,40,28,115
+247,Monta Vista High School,4,,Cupertino,CA,Combined,151,2246,163,232,122,8,232,164,232,232,109,74,15,10,232,67,232,232,122
+175,Philadelphia High School for Girls,1,,Philadelphia,PA,Combined,152,2251,161,232,193,132,174,94,195,153,136,114,74,171,232,25,56,232,109
+167,Olentangy Orange High School,4,,Lewis Center,OH,Combined,153,2259,83,145,70,113,114,186,173,152,35,156,132,232,232,81,172,232,183
+171,Olentangy Orange High School,8,,Lewis Center,OH,Combined,154,2265,199,149,170,193,174,73,169,183,73,194,114,59,103,149,63,232,200
+33,Blue Valley North High School,Gold,,Overland Park,KS,Combined,155,2269,132,81,232,48,232,164,182,186,26,66,232,103,232,107,78,232,168
+132,McNeil High IB World School,,,Austin,TX,Combined,156,2278,51,232,181,149,102,152,82,232,115,148,44,134,71,232,232,232,121
+193,Saint Johnsbury Academy,,,St. Johnsbury,VT,Combined,157,2312,143,86,98,138,122,146,171,128,232,152,38,129,181,146,232,52,170
+58,Decatur High School,1,,Decatur,GA,Combined,158,2315,208,80,126,232,105,232,232,85,118,43,232,97,66,84,232,232,143
+212,Starr's Mill High School,1,,Fayetteville,GA,Combined,159,2315,169,144,149,64,143,148,121,97,231,232,93,103,92,162,232,232,135
+181,Richard Montgomery High School,B,,Rockville,MD,Combined,160,2328,141,179,130,68,174,200,170,89,232,183,203,132,21,132,42,232,232
+166,Olentangy Orange High School,3,,Lewis Center,OH,Combined,161,2329,232,70,190,130,174,113,189,154,231,123,167,86,131,87,112,232,140
+237,West Forsyth High School,Green,,Cumming,GA,Combined,162,2345,165,175,195,159,78,32,140,170,231,160,145,116,93,154,141,232,191
+147,Natrona County High School,Orange,,Casper,WY,Combined,163,2346,144,85,152,232,89,164,181,151,50,132,159,155,167,113,179,232,193
+186,Richard Montgomery High School,G,,Rockville,MD,Combined,164,2348,77,232,112,40,126,131,110,232,232,138,170,184,101,77,232,232,154
+144,Mt. Lebanon High School,Gold,,Pittsburgh,PA,Combined,165,2351,207,178,88,85,152,182,172,145,231,155,108,95,180,134,82,14,157
+228,Vestal High School,Gold,,Vestal,NY,Combined,166,2353,9,185,43,232,232,25,232,232,231,132,69,232,8,232,96,232,163
+104,James S. Rickards High School,3,,Tallahassee,FL,Combined,167,2362,112,112,69,232,171,92,91,137,134,195,232,232,90,107,183,232,173
+252,Monta Vista High School,9,,Cupertino,CA,Combined,168,2368,60,232,133,232,232,29,52,53,97,57,232,232,232,232,232,232,31
+162,Oconee County High School,,,Watkinsville,GA,Combined,169,2373,105,94,120,130,174,90,184,232,27,232,182,232,112,55,232,232,172
+182,Richard Montgomery High School,C,,Rockville,MD,Combined,170,2408,98,94,232,232,174,160,232,121,232,170,95,102,146,77,144,232,99
+231,Veterans High School,2,,Kathleen,GA,Combined,171,2413,131,113,133,167,174,123,190,148,232,163,164,50,137,157,99,232,232
+198,Seckinger High School,,,Buford,GA,Combined,172,2430,130,125,186,232,137,187,151,36,232,120,182,80,176,232,132,232,92
+97,Ithaca High School,Black,,Ithaca,NY,Combined,173,2433,74,152,27,232,232,232,158,117,81,192,190,137,184,232,77,232,116
+208,Saint Francis Catholic High School,Onyx,,Sacramento,CA,Combined,174,2440,197,193,161,188,157,190,185,107,56,159,128,158,53,122,185,232,201
+146,Natrona County High School,Black,,Casper,WY,Combined,175,2449,149,194,232,232,120,162,188,126,142,19,184,232,232,170,20,232,47
+210,Saint Francis Catholic High School,Topax,,Sacramento,CA,Combined,176,2451,145,114,165,185,157,172,187,125,43,172,172,176,183,160,121,232,174
+7,Alliance Academy for Innovation,Gold,,Cumming,GA,Combined,177,2453,134,232,93,120,174,120,131,187,232,90,196,103,232,118,111,232,180
+191,Rockdale Magnet School for Science and Technology,Blue,,Conyers,GA,Combined,178,2461,186,188,123,183,166,184,167,112,57,96,77,175,171,232,149,35,195
+185,Richard Montgomery High School,F,,Rockville,MD,Combined,179,2467,102,164,66,169,174,202,96,159,232,189,232,232,127,69,125,232,129
+176,Pleasantville High School,Green,,Pleasantville,NY,Combined,180,2469,232,195,232,147,232,232,36,106,232,45,12,232,105,136,232,232,63
+60,Duluth High School,Purple,,Duluth,GA,Combined,181,2488,160,87,89,135,94,199,131,166,231,232,232,167,89,169,170,232,137
+105,James S. Rickards High School,4,,Tallahassee,FL,Combined,182,2503,86,172,119,134,232,164,177,165,232,147,179,181,51,168,172,232,124
+168,Olentangy Orange High School,5,,Lewis Center,OH,Combined,183,2508,205,161,115,156,174,195,135,120,121,181,184,185,157,175,58,232,186
+197,Savannah Christian Preparatory School,B,,Savannah,GA,Combined,184,2511,190,148,152,139,174,146,137,160,153,165,198,141,120,162,168,48,158
+230,Veterans High School,1,,Kathleen,GA,Combined,185,2540,162,126,183,132,174,189,192,177,232,191,141,142,137,146,126,232,90
+248,Monta Vista High School,5,,Cupertino,CA,Combined,186,2543,156,232,97,4,157,232,232,189,2,184,173,86,143,232,232,232,192
+240,Wheeler High School,Blue,,Marietta,GA,Combined,187,2552,232,168,80,232,60,122,232,100,10,39,232,232,232,232,117,12,232
+68,El Dorado High School,2,,Placentia,CA,Combined,188,2560,151,116,96,174,147,140,174,176,232,85,126,168,172,232,181,28,190
+18,Archbishop Hoban High School,,,Akron,OH,Combined,189,2575,195,99,194,171,174,232,97,185,232,87,117,172,232,171,104,232,113
+90,Gilmer High School,,,Ellijay,GA,Combined,190,2593,185,174,155,178,87,188,191,146,231,137,151,173,178,152,180,232,87
+249,Monta Vista High School,6,,Cupertino,CA,Combined,191,2601,92,232,183,98,232,119,232,232,21,83,64,232,232,232,232,232,85
+34,Blue Valley North High School,White,,Overland Park,KS,Combined,192,2643,29,232,185,158,103,232,141,232,130,232,29,232,232,232,165,232,79
+70,Evergreen Valley High School,Silver,,San Jose,CA,Combined,193,2664,195,118,188,31,85,148,155,232,232,232,150,232,232,98,104,232,232
+95,Harris County High School,,,Hamilton,GA,Combined,194,2677,150,156,232,182,232,232,123,232,39,127,96,232,95,232,135,232,182
+6,Alliance Academy for Innovation,Blue,,Cumming,GA,Combined,195,2688,232,27,232,45,138,232,232,105,29,232,232,112,232,144,232,232,232
+66,East Mecklenburg High School,JV,,Charlotte,NC,Combined,196,2695,183,135,164,180,121,232,166,132,232,165,201,178,140,232,69,232,165
+80,Fulshear High School,1,,Fulshear,TX,Combined,197,2717,84,197,189,87,172,232,160,232,133,232,76,75,182,232,232,232,202
+120,Lambert High School,Omega,,Suwanee,GA,Combined,198,2739,232,143,171,127,157,142,157,232,232,62,200,86,232,232,232,26,102
+190,River Ridge High School,B,,Woodstock,GA,Combined,199,2774,92,232,126,107,135,81,129,180,232,232,175,232,232,173,232,232,184
+46,Burr and Burton Academy,2,,Manchester,VT,Combined,200,2814,165,106,232,163,174,94,194,193,17,232,232,159,232,232,157,51,232
+213,Starr's Mill High School,2,,Fayetteville,GA,Combined,201,2830,179,184,232,232,232,128,109,232,231,164,232,53,175,232,163,232,52
+106,James S. Rickards High School,5,,Tallahassee,FL,Combined,202,2834,119,123,195,232,232,176,150,67,232,171,188,232,232,232,123,232,130
+170,Olentangy Orange High School,7,,Lewis Center,OH,Combined,203,2883,182,176,232,176,131,193,147,111,231,232,161,169,178,136,232,232,196
+204,Sprayberry High School,,,Marietta,GA,Combined,204,2898,198,167,151,192,174,192,232,232,63,198,209,232,123,232,154,232,149
+178,Prestonwood Christian Academy,,,Plano,TX,Combined,205,2906,232,109,232,232,232,232,232,232,231,232,205,13,152,79,161,36,100
+76,Forsyth Central High School,Black,,Cumming,GA,Combined,206,2913,232,232,159,232,150,154,144,167,232,193,155,232,130,150,119,232,232
+50,Central High School,Gray,,Carrollton,GA,Combined,207,2922,232,166,192,120,232,232,232,232,42,132,207,232,232,138,141,232,160
+148,Natrona County High School,Silver,,Casper,WY,Combined,208,2930,232,177,169,119,232,232,232,232,60,150,199,149,232,102,232,232,181
+119,Lambert High School,Beta,,Suwanee,GA,Combined,209,2933,123,232,74,232,104,152,232,232,232,232,232,232,232,232,86,38,74
+131,McCallie School,B,,Chattanooga,TN,Combined,210,2934,232,232,158,232,174,232,156,2,102,232,174,232,232,232,232,232,80
+44,Bull City Homeschoolers,,,Durham,NC,Combined,211,2993,138,232,232,232,232,134,232,232,232,15,144,232,232,232,232,232,10
+108,James S. Rickards High School,7,,Tallahassee,FL,Combined,212,3001,159,232,232,232,232,70,180,158,53,162,131,232,232,232,232,232,232
+254,Philadelphia High School for Girls,2,,Philadelphia,PA,Combined,213,3033,232,138,232,155,232,232,106,171,232,168,202,179,232,148,232,232,142
+3,Albany High School,Purple,,Albany,CA,Combined,214,3040,126,186,232,232,232,44,161,232,231,232,114,232,232,157,165,232,232
+127,Manhattan High School,JV,,Manhattan,KS,Combined,215,3077,186,232,174,99,123,232,232,179,232,232,180,232,232,232,86,232,194
+61,Duluth High School,White,,Duluth,GA,Combined,216,3086,204,128,142,232,174,184,232,232,232,199,204,163,118,232,178,232,232
+246,Metter High School,,,Metter,GA,Combined,217,3116,201,232,232,189,232,196,232,191,232,172,153,68,232,232,133,232,189
+45,Burr and Burton Academy,1,,Manchester,VT,Combined,218,3151,178,162,199,232,174,201,232,173,232,138,208,232,164,232,232,232,162
+91,Greenbrier High School,,,Evans,GA,Combined,219,3152,232,232,232,117,170,177,104,232,232,232,232,155,109,232,232,232,232
+8,Alliance Academy for Innovation,Silver,,Cumming,GA,Combined,220,3170,202,186,232,232,232,232,232,169,232,154,194,232,177,232,45,232,187
+47,Campbell High School,,,Smyrna,GA,Combined,221,3181,163,232,232,181,174,182,232,174,232,232,157,232,232,176,172,232,178
+184,Richard Montgomery High School,E,,Rockville,MD,Combined,222,3255,179,232,232,232,232,232,232,60,232,232,91,232,232,232,232,232,141
+177,Pope High School,,,Marietta,GA,Combined,223,3280,232,146,232,232,232,232,232,232,232,232,84,116,232,232,150,232,232
+219,The College Preparatory School,Cubs,,Oakland,CA,Combined,224,3285,152,232,232,232,232,232,90,232,232,161,160,232,170,232,232,232,232
+253,Pleasantville High School,Black,,Pleasantville,NY,Combined,225,3289,167,170,197,232,232,171,232,232,232,116,232,232,232,232,148,232,232
+112,Lake Forest High School,Blue,,Lake Forest,IL,Combined,226,3305,232,232,232,232,157,193,183,232,232,135,141,232,232,232,232,232,176
+199,South Cobb High School,,,Austell,GA,Combined,227,3420,232,232,161,190,232,178,153,232,232,232,186,232,232,232,232,232,232
+29,BASIS Independent Fremont,Topoisomerase,,Fremont,CA,Combined,228,3440,232,232,120,232,232,232,232,232,232,232,72,232,232,232,232,232,232
+1,Albany High School,Blue,,Albany,CA,Combined,229,3483,203,232,232,232,232,232,232,232,231,232,33,232,232,232,232,232,232
+113,Lake Forest High School,Gold,,Lake Forest,IL,Combined,230,3609,232,232,129,232,232,232,232,232,232,232,232,232,232,232,232,232,232
+216,Tallulah Falls School,,,Tallulah Falls,GA,Combined,231,3655,232,232,232,175,232,232,232,232,232,232,232,232,232,232,232,232,232
+173,Palo Alto High School,Green,,Palo Alto,CA,1,1,263,26,1,6,2,9,15,16,13,11,10,6,28,7,34,39,232,40
+129,Marquette University High School,,,Milwaukee,WI,1,2,299,11,4,28,33,4,2,3,5,99,3,17,22,28,16,7,232,17
+57,Davidson Academy,,,Reno,NV,1,3,410,57,10,12,43,11,86,41,8,16,68,17,3,13,8,12,232,5
+122,Liberal Arts and Science Academy,Neutron,,Austin,TX,1,5,459,66,7,51,5,3,7,78,25,120,8,40,17,1,2,27,232,2
+20,Archimedean Upper Conservatory,Alpha,,Miami,FL,1,4,445,15,53,46,11,10,4,31,41,34,11,14,22,46,13,43,17,51
+10,Amador Valley High School,1,,Pleasanton,CA,1,6,484,34,3,9,3,17,43,73,20,94,9,62,7,45,3,41,232,21
+15,American High School,,,Fremont,CA,1,7,502,44,47,35,9,15,46,19,59,78,1,19,22,48,48,8,16,4
+160,Northwood High School,Silver,,Irvine,CA,1,9,587,8,6,173,58,7,40,29,29,3,33,1,17,141,5,11,6,26
+244,C.G. Woodson High School,Leviathan,,Fairfax,VA,1,8,580,5,36,80,64,28,33,8,37,6,30,25,93,42,54,36,7,3
+142,Mountain House High School,Sapphire,,Mountain House,CA,1,10,618,21,32,65,77,12,11,7,56,14,33,99,46,29,33,28,232,55
+85,Fulton County Schools Innovation Academy,T-Rex,,Alpharetta,GA,1,12,648,49,9,57,71,31,17,55,31,82,25,34,46,29,22,70,232,20
+38,Bridgeland High School,Orange,,Cypress,TX,1,13,723,17,13,82,22,108,9,39,28,41,185,29,40,62,15,6,2,27
+188,River City Science Academy Middle-High School,RaTs,,Jacksonville,FL,1,14,744,39,45,167,73,67,27,44,62,5,15,11,17,23,105,36,232,8
+220,The Frazer School,3-Bet,,Gainesville,FL,1,19,828,12,20,18,12,37,5,232,7,13,80,45,49,57,4,5,232,232
+159,Northwood High School,Navy,,Irvine,CA,1,21,835,16,147,83,17,8,19,10,132,33,59,5,40,142,51,16,232,57
+11,Amador Valley High School,2,,Pleasanton,CA,1,18,807,124,30,32,38,22,76,34,39,154,5,13,83,54,21,32,232,50
+174,Palo Alto High School,White,,Palo Alto,CA,1,22,841,89,35,70,64,13,25,92,26,4,52,43,86,97,38,58,232,49
+135,Monta Vista High School,Blue,,Cupertino,CA,1,35,1111,19,21,2,7,1,81,24,1,8,232,232,1,9,9,232,232,232
+62,Eagan High School,,,Eagan,MN,1,25,934,51,21,132,152,54,37,4,6,19,92,104,34,107,16,46,232,59
+102,James S. Rickards High School,1,,Tallahassee,FL,1,23,913,113,66,31,92,25,21,86,41,54,110,20,118,25,67,28,232,16
+215,Sunset High School,,,Portland,OR,1,26,979,41,8,178,91,63,86,9,54,128,108,60,8,17,99,28,232,1
+56,Chattahoochee High School,3,,Johns Creek,GA,1,24,925,63,79,73,51,29,57,103,30,23,62,112,65,82,6,21,232,69
+161,Northwood High School,White,,Irvine,CA,1,30,1040,7,134,23,123,21,21,6,232,55,50,24,59,31,55,133,232,66
+164,Olentangy Orange High School,1,,Lewis Center,OH,1,29,1035,167,66,62,6,93,3,43,161,36,19,149,2,25,46,104,232,53
+224,Westminster Schools,,,Atlanta,GA,1,32,1065,37,232,39,142,62,102,69,10,79,61,42,22,72,29,1,232,66
+12,Amador Valley High School,3,,Pleasanton,CA,1,27,1004,78,64,59,92,59,51,45,41,76,99,49,6,36,73,98,232,78
+32,Blue Valley North High School,Blue,,Overland Park,KS,1,38,1139,152,45,3,19,14,10,24,114,90,42,35,232,41,58,232,44,28
+21,Archimedean Upper Conservatory,Beta,,Miami,FL,1,28,1009,62,27,39,76,86,73,64,71,46,21,48,80,79,70,93,18,74
+130,McCallie School,A,,Chattanooga,TN,1,31,1047,57,11,1,148,45,64,58,74,111,75,26,40,33,107,102,232,95
+25,BASIS Chandler,1,,Chandler,AZ,1,33,1088,37,74,18,36,36,51,130,17,147,4,28,73,75,104,130,232,128
+233,Walton High School,B,,Marietta,GA,1,39,1140,27,48,106,10,70,102,15,110,83,86,10,40,16,73,165,232,179
+140,Mountain House High School,Obsidian,,Mountain House,CA,1,46,1170,30,61,103,35,20,86,51,188,24,119,99,142,119,19,26,232,48
+222,The Frazer School,Big Blind,,Gainesville,FL,1,52,1206,40,29,18,61,33,33,79,232,141,102,68,59,22,232,25,232,32
+137,Monta Vista High School,Yellow,,Cupertino,CA,1,61,1348,51,5,232,57,6,29,232,44,49,7,232,232,80,1,14,232,77
+242,C.G. Woodson High School,Hydra,,Fairfax,VA,1,40,1142,60,31,23,125,96,60,75,70,110,65,22,114,90,154,33,28,14
+136,Monta Vista High School,Red,,Cupertino,CA,1,66,1398,23,232,4,51,26,24,13,232,1,2,9,232,232,232,14,232,71
+41,Brookwood High School,C,,Snellville,GA,1,36,1137,71,84,77,104,55,118,36,113,31,72,80,68,85,45,73,232,25
+39,Brookwood High School,A,,Snellville,GA,1,43,1161,113,93,55,45,30,106,124,24,123,29,59,34,137,87,96,232,6
+37,Bridgeland High School,Blue,,Cypress,TX,1,55,1290,23,59,232,36,19,8,62,14,131,182,7,34,104,43,137,232,199
+232,Walton High School,A,,Marietta,GA,1,45,1170,135,37,133,59,72,174,106,101,15,26,37,68,81,79,10,232,37
+93,"Gwinnett School of Mathematics, Science, and Technology",2,,Lawrenceville,GA,1,51,1202,97,69,42,128,64,157,24,131,69,118,82,59,35,20,94,232,13
+40,Brookwood High School,B,,Snellville,GA,1,47,1181,135,107,60,83,47,90,31,76,44,57,73,50,129,87,50,232,62
+92,"Gwinnett School of Mathematics, Science, and Technology",1,,Lawrenceville,GA,1,50,1201,14,83,45,60,100,92,53,48,107,59,111,74,100,94,56,232,105
+221,The Frazer School,All In,,Gainesville,FL,1,59,1332,109,232,10,42,90,169,28,27,108,232,86,68,43,12,4,232,72
+165,Olentangy Orange High School,2,,Lewis Center,OH,1,60,1347,171,56,128,19,145,12,108,45,74,68,113,13,24,23,163,232,185
+13,Amador Valley High School,4,,Pleasanton,CA,1,54,1253,99,92,34,114,131,64,49,82,22,78,29,28,117,60,115,232,139
+234,Walton High School,C,,Marietta,GA,1,64,1354,101,88,35,140,24,134,121,16,132,27,135,109,20,39,36,232,197
+202,South Forsyth High School,Pizza,,Cumming,GA,1,63,1351,54,82,157,141,153,14,79,40,48,89,94,107,67,71,90,232,65
+14,American Heritage School - Palm Beach,,,Delray Beach,FL,1,58,1322,129,12,76,135,53,84,98,104,100,18,141,15,87,103,47,232,120
+235,Walton High School,D,,Marietta,GA,1,62,1349,43,105,156,125,41,86,142,33,114,77,109,53,39,127,13,5,86
+26,BASIS Chandler,2,,Chandler,AZ,1,57,1319,28,71,22,41,112,106,57,72,119,93,77,119,48,112,135,232,107
+158,Northview High School,3,,Johns Creek,GA,1,78,1518,10,232,13,101,157,113,67,46,232,56,66,34,58,232,86,232,15
+86,Fulton Science Academy,Hurricane Hunters,,Alpharetta,GA,1,77,1468,116,25,232,90,46,48,154,115,105,31,147,40,67,31,184,232,37
+201,South Forsyth High School,Pine,,Cumming,GA,1,72,1443,103,42,47,16,92,33,14,66,37,197,74,97,232,141,120,232,132
+128,Manhattan High School,Varsity,,Manhattan,KS,1,67,1403,111,117,51,124,58,154,142,130,106,81,52,17,73,87,54,232,46
+156,Northview High School,1,,Johns Creek,GA,1,74,1452,55,34,21,154,74,72,53,109,231,122,26,86,164,105,24,232,122
+88,Fulton Science Academy,Dino Nuggets,,Alpharetta,GA,1,70,1432,36,160,49,104,61,158,165,99,88,33,101,27,60,117,90,232,84
+48,Castro Valley High School,,,Castro Valley,CA,1,68,1420,79,137,117,67,32,161,94,58,85,14,32,75,155,73,137,49,104
+243,C.G. Woodson High School,Kraken,,Fairfax,VA,1,73,1445,47,68,84,143,65,113,18,38,126,97,89,161,50,139,81,14,126
+54,Chattahoochee High School,1,,Johns Creek,GA,1,76,1466,140,127,15,81,74,102,59,119,18,27,110,34,122,118,172,232,148
+87,Fulton Science Academy,Mega Squirrels,,Alpharetta,GA,1,95,1703,173,232,14,25,5,57,11,118,98,232,2,4,36,232,232,232,232
+121,Liberal Arts and Science Academy,Electron,,Austin,TX,1,92,1668,232,15,123,48,2,232,69,68,231,68,23,32,232,58,3,20,232
+134,Mentor High School,Red,,Mentor,OH,1,90,1644,49,23,150,38,106,154,5,164,47,48,232,52,232,232,101,43,11
+123,Liberal Arts and Science Academy,Proton,,Austin,TX,1,96,1720,4,100,67,173,16,232,104,50,117,196,232,232,3,174,2,232,18
+55,Chattahoochee High School,2,,Johns Creek,GA,1,82,1584,75,180,87,68,111,128,62,149,87,22,116,93,86,31,181,232,108
+187,River City Science Academy Middle-High School,RaPtors,,Jacksonville,FL,1,83,1591,127,97,180,84,95,48,61,78,231,93,57,119,144,61,33,41,83
+107,James S. Rickards High School,6,,Tallahassee,FL,1,86,1626,70,142,43,47,98,98,40,122,116,50,161,140,148,127,80,232,144
+223,The Frazer School,Pocket Aces,,Gainesville,FL,1,107,1864,232,55,232,28,232,73,232,232,92,45,124,5,232,11,17,232,22
+103,James S. Rickards High School,2,,Tallahassee,FL,1,87,1631,92,173,55,146,80,111,84,147,68,105,135,126,114,65,89,232,41
+172,Palo Alto High School,Black,,Palo Alto,CA,1,93,1675,72,90,146,95,43,106,145,177,25,71,85,75,97,91,188,232,169
+22,Archimedean Upper Conservatory,Gamma,,Miami,FL,1,91,1663,156,120,15,73,140,81,175,80,66,88,92,144,135,113,94,232,91
+42,Brookwood High School,D,,Snellville,GA,1,99,1740,80,157,232,177,44,42,116,56,113,124,176,128,94,51,107,232,43
+84,Fulton County Schools Innovation Academy,Pterodactyl,,Alpharetta,GA,1,100,1747,121,77,131,157,52,144,50,21,122,111,232,108,5,142,160,232,114
+200,South Forsyth High School,Apple,,Cumming,GA,1,98,1738,107,89,145,85,99,67,83,96,93,127,163,135,173,57,85,46,134
+157,Northview High School,2,,Johns Creek,GA,1,102,1797,146,131,8,54,66,134,159,63,232,55,107,103,106,99,102,232,232
+89,Fulton Science Academy,Zombie Ducks,,Alpharetta,GA,1,122,2021,192,19,232,1,174,232,232,182,86,49,171,9,38,36,232,232,136
+245,Lincoln Science Focus Program High School,,,Lincoln,NE,1,108,1870,80,38,91,26,154,78,113,156,232,120,169,169,166,27,107,232,144
+94,"Gwinnett School of Mathematics, Science, and Technology",3,,Lawrenceville,GA,1,105,1852,75,101,89,48,165,175,86,92,231,167,152,114,77,159,82,232,39
+118,Lambert High School,Alpha,,Suwanee,GA,1,123,2022,68,40,5,232,157,106,16,88,232,232,232,53,27,232,232,232,70
+141,Mountain House High School,Pearl,,Mountain House,CA,1,112,1889,99,72,142,160,80,180,138,116,70,158,130,151,163,93,76,232,61
+169,Olentangy Orange High School,6,,Lewis Center,OH,1,119,1951,80,133,94,187,91,113,126,101,20,232,132,65,75,83,187,232,232
+83,Fulton County Schools Innovation Academy,Megalosaurus,,Alpharetta,GA,1,116,1937,91,115,232,115,79,84,85,64,232,143,98,59,133,232,130,232,45
+251,Monta Vista High School,8,,Cupertino,CA,1,142,2183,6,232,179,232,232,40,41,232,144,12,8,122,232,232,232,232,7
+250,Monta Vista High School,7,,Cupertino,CA,1,140,2167,232,16,28,232,232,127,27,232,80,54,81,232,232,232,21,232,109
+19,Archimedean Upper Conservatory,Delta,,Miami,FL,1,129,2084,191,40,28,232,18,6,186,124,232,157,135,119,120,232,171,4,93
+180,Richard Montgomery High School,A,,Rockville,MD,1,136,2121,18,171,182,107,169,148,178,94,232,144,206,182,56,97,55,232,82
+96,Hoover High School,,,Hoover,AL,1,128,2081,194,182,163,122,157,51,81,136,129,151,146,92,125,94,60,40,198
+247,Monta Vista High School,4,,Cupertino,CA,1,151,2246,163,232,122,8,232,164,232,232,109,74,15,10,232,67,232,232,122
+133,Mentor High School,Gray,,Mentor,OH,1,149,2232,87,154,232,77,77,111,198,61,58,188,165,232,132,166,117,232,177
+252,Monta Vista High School,9,,Cupertino,CA,1,168,2368,60,232,133,232,232,29,52,53,97,57,232,232,232,232,232,232,31
+171,Olentangy Orange High School,8,,Lewis Center,OH,1,154,2265,199,149,170,193,174,73,169,183,73,194,114,59,103,149,63,232,200
+33,Blue Valley North High School,Gold,,Overland Park,KS,1,155,2269,132,81,232,48,232,164,182,186,26,66,232,103,232,107,78,232,168
+167,Olentangy Orange High School,4,,Lewis Center,OH,1,153,2259,83,145,70,113,114,186,173,152,35,156,132,232,232,81,172,232,183
+183,Richard Montgomery High School,D,,Rockville,MD,1,144,2183,155,136,125,107,174,120,115,138,232,129,197,101,51,113,115,232,175
+181,Richard Montgomery High School,B,,Rockville,MD,1,160,2328,141,179,130,68,174,200,170,89,232,183,203,132,21,132,42,232,232
+186,Richard Montgomery High School,G,,Rockville,MD,1,164,2348,77,232,112,40,126,131,110,232,232,138,170,184,101,77,232,232,154
+166,Olentangy Orange High School,3,,Lewis Center,OH,1,161,2329,232,70,190,130,174,113,189,154,231,123,167,86,131,87,112,232,140
+104,James S. Rickards High School,3,,Tallahassee,FL,1,167,2362,112,112,69,232,171,92,91,137,134,195,232,232,90,107,183,232,173
+182,Richard Montgomery High School,C,,Rockville,MD,1,170,2408,98,94,232,232,174,160,232,121,232,170,95,102,146,77,144,232,99
+248,Monta Vista High School,5,,Cupertino,CA,1,186,2543,156,232,97,4,157,232,232,189,2,184,173,86,143,232,232,232,192
+105,James S. Rickards High School,4,,Tallahassee,FL,1,182,2503,86,172,119,134,232,164,177,165,232,147,179,181,51,168,172,232,124
+185,Richard Montgomery High School,F,,Rockville,MD,1,179,2467,102,164,66,169,174,202,96,159,232,189,232,232,127,69,125,232,129
+168,Olentangy Orange High School,5,,Lewis Center,OH,1,183,2508,205,161,115,156,174,195,135,120,121,181,184,185,157,175,58,232,186
+249,Monta Vista High School,6,,Cupertino,CA,1,191,2601,92,232,183,98,232,119,232,232,21,83,64,232,232,232,232,232,85
+34,Blue Valley North High School,White,,Overland Park,KS,1,192,2643,29,232,185,158,103,232,141,232,130,232,29,232,232,232,165,232,79
+120,Lambert High School,Omega,,Suwanee,GA,1,198,2739,232,143,171,127,157,142,157,232,232,62,200,86,232,232,232,26,102
+131,McCallie School,B,,Chattanooga,TN,1,210,2934,232,232,158,232,174,232,156,2,102,232,174,232,232,232,232,232,80
+106,James S. Rickards High School,5,,Tallahassee,FL,1,202,2834,119,123,195,232,232,176,150,67,232,171,188,232,232,232,123,232,130
+170,Olentangy Orange High School,7,,Lewis Center,OH,1,203,2883,182,176,232,176,131,193,147,111,231,232,161,169,178,136,232,232,196
+119,Lambert High School,Beta,,Suwanee,GA,1,209,2933,123,232,74,232,104,152,232,232,232,232,232,232,232,232,86,38,74
+108,James S. Rickards High School,7,,Tallahassee,FL,1,212,3001,159,232,232,232,232,70,180,158,53,162,131,232,232,232,232,232,232
+127,Manhattan High School,JV,,Manhattan,KS,1,215,3077,186,232,174,99,123,232,232,179,232,232,180,232,232,232,86,232,194
+184,Richard Montgomery High School,E,,Rockville,MD,1,222,3255,179,232,232,232,232,232,232,60,232,232,91,232,232,232,232,232,141
+112,Lake Forest High School,Blue,,Lake Forest,IL,1,226,3305,232,232,232,232,157,193,183,232,232,135,141,232,232,232,232,232,176
+113,Lake Forest High School,Gold,,Lake Forest,IL,1,230,3609,232,232,129,232,232,232,232,232,232,232,232,232,232,232,232,232,232
+27,BASIS Independent Silicon Valley,,,San Jose,CA,2,11,627,12,43,32,15,40,21,2,4,231,31,50,12,6,63,9,232,56
+24,BASIS Cedar Park,Varsity,,Cedar Park,TX,2,15,748,68,50,63,27,39,19,74,83,12,41,53,17,67,44,18,232,73
+217,Bronx High School of Science,,,Bronx,NY,2,16,767,44,57,57,24,27,17,98,15,32,98,51,83,2,39,21,39,102
+239,Westview High School,,,Portland,OR,2,17,790,20,18,51,28,51,51,21,52,67,115,36,32,19,9,161,232,59
+238,Westlake High School,,,Austin,TX,2,20,830,30,2,118,18,83,68,1,8,103,66,71,28,63,49,99,232,23
+206,Spruce Creek High School,Orange,,Port Orange,FL,2,34,1110,55,33,111,62,48,46,12,75,95,140,47,133,32,36,144,9,41
+99,Ithaca High School,Red,,Ithaca,NY,2,41,1158,128,65,100,71,101,60,22,87,96,53,118,10,4,118,90,232,35
+74,Florida Atlantic University High School,Burrowing,,Boca Raton,FL,2,49,1198,104,104,38,111,83,110,56,129,150,40,16,83,10,46,61,232,57
+5,Albany High School,White,,Albany,CA,2,48,1185,154,44,160,92,49,78,45,50,112,5,55,109,40,84,19,232,89
+229,Vestal High School,Green,,Vestal,NY,2,37,1139,25,17,7,68,37,1,134,34,231,38,127,80,114,107,110,45,9
+71,Evergreen Valley High School,Teal,,San Jose,CA,2,42,1160,30,75,17,14,141,44,45,23,231,91,2,31,150,124,44,232,98
+179,Queens High School for the Sciences at York College,,,Queens,NY,2,53,1220,96,91,25,87,68,37,113,54,231,12,57,68,18,73,126,232,64
+28,BASIS Independent Fremont,Primase,,Fremont,CA,2,44,1165,47,38,11,82,23,33,72,172,72,190,41,53,11,71,82,232,167
+4,Albany High School,Red,,Albany,CA,2,56,1314,46,158,99,137,42,98,19,143,28,47,63,137,78,61,65,232,93
+126,Livingston High School,Theodore,,Livingston,NJ,2,65,1374,42,73,79,23,107,76,149,83,127,113,82,130,83,39,63,20,105
+69,Evergreen Valley High School,Black,,San Jose,CA,2,71,1442,107,131,75,80,150,51,29,139,89,37,56,123,148,39,122,232,66
+154,Northern Academy of the Arts,A,,Middletown,NY,2,69,1422,125,124,51,232,56,131,127,48,232,100,21,59,34,26,28,232,28
+124,Livingston High School,Alvin,,Livingston,NJ,2,75,1452,22,119,26,55,50,163,163,22,45,104,96,39,64,130,188,23,166
+73,Florida Atlantic University High School,Barn,,Boca Raton,FL,2,84,1606,84,75,136,102,156,140,92,108,38,75,39,146,65,134,128,232,88
+227,Upper Arlington High School,Gold,,Upper Arlington,OH,2,80,1548,181,96,49,87,82,144,116,90,232,24,121,67,74,94,79,232,12
+125,Livingston High School,Simon,,Livingston,NJ,2,81,1559,188,14,177,161,113,102,89,12,125,78,64,99,153,50,33,13,101
+63,East Coweta High School,Gold,,Sharpsburg,GA,2,79,1546,139,49,39,19,88,151,102,81,71,146,88,157,59,35,159,42,163
+82,Fulshear High School,Purple,,Fulshear,TX,2,85,1626,67,140,101,116,109,51,146,127,140,136,86,139,150,14,68,10,36
+67,El Dorado High School,1,,Placentia,CA,2,88,1634,115,54,67,118,35,48,68,155,30,117,101,180,128,113,153,33,152
+64,East Coweta High School,Purple,,Sharpsburg,GA,2,89,1638,121,52,175,97,143,168,162,11,151,103,125,75,136,53,48,50,18
+75,Florida Atlantic University High School,Oranges,,Boca Raton,FL,2,94,1692,176,108,140,152,125,60,127,35,104,64,89,131,126,23,73,232,159
+110,Johns Creek High School,A,,Johns Creek,GA,2,101,1761,175,111,85,144,117,128,196,140,7,17,67,113,145,86,112,53,118
+138,Moorestown Friends School,1,,Moorestown,NJ,2,97,1737,105,51,171,43,119,173,101,46,75,153,148,165,102,29,123,31,133
+109,John S. Davidson Fine Arts Magnet School,,,Augusta,GA,2,109,1870,109,103,108,184,97,39,111,135,149,169,153,148,156,27,65,24,117
+155,Northern Academy of the Arts,B,,Middletown,NY,2,110,1877,176,24,112,77,71,179,86,69,232,81,46,144,134,129,146,232,171
+81,Fulshear High School,Black,,Fulshear,TX,2,104,1843,63,153,142,232,129,28,163,98,139,109,193,95,70,82,73,232,74
+189,River Ridge High School,A,,Woodstock,GA,2,111,1879,133,62,137,32,127,113,118,77,135,144,158,124,169,7,232,232,111
+143,Mt. Lebanon High School,Blue,,Pittsburgh,PA,2,103,1832,205,129,139,12,69,170,65,157,231,106,103,16,159,91,146,1,34
+214,Stratford Preparatory School,,,San Jose,CA,2,114,1912,183,58,110,96,131,139,66,78,152,187,139,75,95,122,154,232,127
+205,Spruce Creek High School,Black,,Port Orange,FL,2,106,1859,63,163,148,179,124,29,33,168,52,142,132,177,55,121,176,11,97
+150,North Gwinnett High School,A,,Suwanee,GA,2,115,1924,118,98,70,172,131,68,98,150,77,177,128,152,167,124,150,232,44
+226,Upper Arlington High School,Black,,Upper Arlington,OH,2,113,1898,173,192,109,170,73,57,125,123,231,36,166,124,158,63,65,232,33
+53,Central York High School,2,,York,PA,2,121,2000,189,130,165,150,154,64,35,85,143,73,195,164,154,130,50,19,119
+98,Ithaca High School,Gold,,Ithaca,NY,2,127,2069,147,78,198,75,130,131,133,140,84,130,189,161,108,143,72,232,150
+236,West Forsyth High School,Blue,,Cumming,GA,2,131,2088,95,149,64,128,139,94,168,181,148,149,187,126,97,145,107,232,111
+30,BASIS Peoria,,,Peoria,AZ,2,120,1972,1,121,95,100,166,63,148,175,59,178,178,183,110,232,139,20,24
+52,Central York High School,1,,York,PA,2,126,2051,116,180,140,191,149,134,71,144,62,112,77,152,111,153,71,2,188
+111,Johns Creek High School,B,,Johns Creek,GA,2,118,1943,3,110,114,106,148,232,38,19,40,175,122,232,174,232,52,8,146
+23,BASIS Cedar Park,JV,,Cedar Park,TX,2,117,1938,2,122,48,33,34,12,232,190,232,232,61,232,83,232,112,232,81
+192,Rockdale Magnet School for Science and Technology,Gold,,Conyers,GA,2,137,2121,89,102,168,164,142,78,94,93,145,95,138,173,162,167,150,36,161
+31,BASIS Pflugerville,,,Pflugerville,TX,2,130,2088,172,164,86,112,173,70,197,232,64,126,53,99,88,124,232,232,96
+51,Central High School,Maroon,,Carrollton,GA,2,135,2118,57,183,187,151,174,191,45,90,137,107,105,135,113,172,140,47,131
+152,North Gwinnett High School,C,,Suwanee,GA,2,133,2098,72,139,138,166,116,142,76,162,232,125,177,46,14,161,176,232,156
+145,Mt. Lebanon High School,White,,Pittsburgh,PA,2,132,2097,147,189,107,51,109,98,119,163,232,180,70,22,232,99,154,27,125
+207,Spruce Creek High School,White,,Port Orange,FL,2,125,2048,34,189,152,30,174,197,179,95,9,131,191,166,232,65,53,25,151
+59,Decatur High School,2,,Decatur,GA,2,124,2025,232,140,175,232,56,94,138,32,101,43,232,86,232,16,186,232,30
+209,Saint Francis Catholic High School,Ruby,,Sacramento,CA,2,141,2173,200,196,102,165,115,158,112,192,61,140,120,147,124,133,61,232,147
+2,Albany High School,Green,,Albany,CA,2,145,2185,88,191,190,103,128,181,151,73,146,23,168,160,161,156,128,232,138
+196,Savannah Christian Preparatory School,A,,Savannah,GA,2,143,2183,119,63,37,145,166,123,175,140,138,179,192,40,116,150,168,31,232
+139,Moorestown Friends School,Foxes,,Moorestown,NJ,2,146,2195,192,60,147,162,146,125,120,64,232,101,106,154,159,232,141,232,54
+151,North Gwinnett High School,B,,Suwanee,GA,2,139,2164,156,151,77,168,174,98,193,103,65,186,118,109,15,165,232,232,154
+65,East Mecklenburg High School,Varsity,,Charlotte,NC,2,148,2210,170,155,104,62,76,198,136,184,232,84,140,150,44,164,158,232,153
+78,Forsyth Central High School,Red,,Cumming,GA,2,134,2109,141,158,116,185,174,15,23,3,124,174,181,232,12,107,232,232,232
+218,The College Preparatory School,Cougars,,Oakland,CA,2,138,2155,135,26,91,55,136,134,77,18,232,232,123,53,147,232,232,34,232
+175,Philadelphia High School for Girls,1,,Philadelphia,PA,2,152,2251,161,232,193,132,174,94,195,153,136,114,74,171,232,25,56,232,109
+241,Wheeler High School,Gold,,Marietta,GA,2,150,2236,232,232,61,107,118,232,232,134,91,232,156,53,61,140,40,28,115
+193,Saint Johnsbury Academy,,,St. Johnsbury,VT,2,157,2312,143,86,98,138,122,146,171,128,232,152,38,129,181,146,232,52,170
+132,McNeil High IB World School,,,Austin,TX,2,156,2278,51,232,181,149,102,152,82,232,115,148,44,134,71,232,232,232,121
+212,Starr's Mill High School,1,,Fayetteville,GA,2,159,2315,169,144,149,64,143,148,121,97,231,232,93,103,92,162,232,232,135
+147,Natrona County High School,Orange,,Casper,WY,2,163,2346,144,85,152,232,89,164,181,151,50,132,159,155,167,113,179,232,193
+237,West Forsyth High School,Green,,Cumming,GA,2,162,2345,165,175,195,159,78,32,140,170,231,160,145,116,93,154,141,232,191
+72,Fairfield County Homeschoolers,,,Redding,CT,2,147,2209,33,168,105,232,232,125,60,232,51,175,4,232,47,232,49,232,232
+58,Decatur High School,1,,Decatur,GA,2,158,2315,208,80,126,232,105,232,232,85,118,43,232,97,66,84,232,232,143
+144,Mt. Lebanon High School,Gold,,Pittsburgh,PA,2,165,2351,207,178,88,85,152,182,172,145,231,155,108,95,180,134,82,14,157
+231,Veterans High School,2,,Kathleen,GA,2,171,2413,131,113,133,167,174,123,190,148,232,163,164,50,137,157,99,232,232
+162,Oconee County High School,,,Watkinsville,GA,2,169,2373,105,94,120,130,174,90,184,232,27,232,182,232,112,55,232,232,172
+7,Alliance Academy for Innovation,Gold,,Cumming,GA,2,177,2453,134,232,93,120,174,120,131,187,232,90,196,103,232,118,111,232,180
+198,Seckinger High School,,,Buford,GA,2,172,2430,130,125,186,232,137,187,151,36,232,120,182,80,176,232,132,232,92
+210,Saint Francis Catholic High School,Topax,,Sacramento,CA,2,176,2451,145,114,165,185,157,172,187,125,43,172,172,176,183,160,121,232,174
+208,Saint Francis Catholic High School,Onyx,,Sacramento,CA,2,174,2440,197,193,161,188,157,190,185,107,56,159,128,158,53,122,185,232,201
+60,Duluth High School,Purple,,Duluth,GA,2,181,2488,160,87,89,135,94,199,131,166,231,232,232,167,89,169,170,232,137
+197,Savannah Christian Preparatory School,B,,Savannah,GA,2,184,2511,190,148,152,139,174,146,137,160,153,165,198,141,120,162,168,48,158
+191,Rockdale Magnet School for Science and Technology,Blue,,Conyers,GA,2,178,2461,186,188,123,183,166,184,167,112,57,96,77,175,171,232,149,35,195
+97,Ithaca High School,Black,,Ithaca,NY,2,173,2433,74,152,27,232,232,232,158,117,81,192,190,137,184,232,77,232,116
+228,Vestal High School,Gold,,Vestal,NY,2,166,2353,9,185,43,232,232,25,232,232,231,132,69,232,8,232,96,232,163
+146,Natrona County High School,Black,,Casper,WY,2,175,2449,149,194,232,232,120,162,188,126,142,19,184,232,232,170,20,232,47
+230,Veterans High School,1,,Kathleen,GA,2,185,2540,162,126,183,132,174,189,192,177,232,191,141,142,137,146,126,232,90
+68,El Dorado High School,2,,Placentia,CA,2,188,2560,151,116,96,174,147,140,174,176,232,85,126,168,172,232,181,28,190
+18,Archbishop Hoban High School,,,Akron,OH,2,189,2575,195,99,194,171,174,232,97,185,232,87,117,172,232,171,104,232,113
+176,Pleasantville High School,Green,,Pleasantville,NY,2,180,2469,232,195,232,147,232,232,36,106,232,45,12,232,105,136,232,232,63
+90,Gilmer High School,,,Ellijay,GA,2,190,2593,185,174,155,178,87,188,191,146,231,137,151,173,178,152,180,232,87
+240,Wheeler High School,Blue,,Marietta,GA,2,187,2552,232,168,80,232,60,122,232,100,10,39,232,232,232,232,117,12,232
+70,Evergreen Valley High School,Silver,,San Jose,CA,2,193,2664,195,118,188,31,85,148,155,232,232,232,150,232,232,98,104,232,232
+95,Harris County High School,,,Hamilton,GA,2,194,2677,150,156,232,182,232,232,123,232,39,127,96,232,95,232,135,232,182
+66,East Mecklenburg High School,JV,,Charlotte,NC,2,196,2695,183,135,164,180,121,232,166,132,232,165,201,178,140,232,69,232,165
+80,Fulshear High School,1,,Fulshear,TX,2,197,2717,84,197,189,87,172,232,160,232,133,232,76,75,182,232,232,232,202
+6,Alliance Academy for Innovation,Blue,,Cumming,GA,2,195,2688,232,27,232,45,138,232,232,105,29,232,232,112,232,144,232,232,232
+190,River Ridge High School,B,,Woodstock,GA,2,199,2774,92,232,126,107,135,81,129,180,232,232,175,232,232,173,232,232,184
+46,Burr and Burton Academy,2,,Manchester,VT,2,200,2814,165,106,232,163,174,94,194,193,17,232,232,159,232,232,157,51,232
+213,Starr's Mill High School,2,,Fayetteville,GA,2,201,2830,179,184,232,232,232,128,109,232,231,164,232,53,175,232,163,232,52
+76,Forsyth Central High School,Black,,Cumming,GA,2,206,2913,232,232,159,232,150,154,144,167,232,193,155,232,130,150,119,232,232
+204,Sprayberry High School,,,Marietta,GA,2,204,2898,198,167,151,192,174,192,232,232,63,198,209,232,123,232,154,232,149
+50,Central High School,Gray,,Carrollton,GA,2,207,2922,232,166,192,120,232,232,232,232,42,132,207,232,232,138,141,232,160
+148,Natrona County High School,Silver,,Casper,WY,2,208,2930,232,177,169,119,232,232,232,232,60,150,199,149,232,102,232,232,181
+178,Prestonwood Christian Academy,,,Plano,TX,2,205,2906,232,109,232,232,232,232,232,232,231,232,205,13,152,79,161,36,100
+254,Philadelphia High School for Girls,2,,Philadelphia,PA,2,213,3033,232,138,232,155,232,232,106,171,232,168,202,179,232,148,232,232,142
+44,Bull City Homeschoolers,,,Durham,NC,2,211,2993,138,232,232,232,232,134,232,232,232,15,144,232,232,232,232,232,10
+3,Albany High School,Purple,,Albany,CA,2,214,3040,126,186,232,232,232,44,161,232,231,232,114,232,232,157,165,232,232
+61,Duluth High School,White,,Duluth,GA,2,216,3086,204,128,142,232,174,184,232,232,232,199,204,163,118,232,178,232,232
+246,Metter High School,,,Metter,GA,2,217,3116,201,232,232,189,232,196,232,191,232,172,153,68,232,232,133,232,189
+91,Greenbrier High School,,,Evans,GA,2,219,3152,232,232,232,117,170,177,104,232,232,232,232,155,109,232,232,232,232
+45,Burr and Burton Academy,1,,Manchester,VT,2,218,3151,178,162,199,232,174,201,232,173,232,138,208,232,164,232,232,232,162
+47,Campbell High School,,,Smyrna,GA,2,221,3181,163,232,232,181,174,182,232,174,232,232,157,232,232,176,172,232,178
+8,Alliance Academy for Innovation,Silver,,Cumming,GA,2,220,3170,202,186,232,232,232,232,232,169,232,154,194,232,177,232,45,232,187
+253,Pleasantville High School,Black,,Pleasantville,NY,2,225,3289,167,170,197,232,232,171,232,232,232,116,232,232,232,232,148,232,232
+219,The College Preparatory School,Cubs,,Oakland,CA,2,224,3285,152,232,232,232,232,232,90,232,232,161,160,232,170,232,232,232,232
+177,Pope High School,,,Marietta,GA,2,223,3280,232,146,232,232,232,232,232,232,232,232,84,116,232,232,150,232,232
+199,South Cobb High School,,,Austell,GA,2,227,3420,232,232,161,190,232,178,153,232,232,232,186,232,232,232,232,232,232
+29,BASIS Independent Fremont,Topoisomerase,,Fremont,CA,2,228,3440,232,232,120,232,232,232,232,232,232,232,72,232,232,232,232,232,232
+1,Albany High School,Blue,,Albany,CA,2,229,3483,203,232,232,232,232,232,232,232,231,232,33,232,232,232,232,232,232
+216,Tallulah Falls School,,,Tallulah Falls,GA,2,231,3655,232,232,232,175,232,232,232,232,232,232,232,232,232,232,232,232,232
