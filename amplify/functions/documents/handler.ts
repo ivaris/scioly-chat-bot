@@ -2,10 +2,11 @@ import { Amplify } from 'aws-amplify';
 import { generateClient } from 'aws-amplify/data';
 import { getAmplifyDataClientConfig } from '@aws-amplify/backend/function/runtime';
 import type { Schema } from '../../data/resource.ts';
-import { computeEmbedding, extractTextFromFile } from '../../common/utils.ts';
+import { computeEmbedding, extractTextFromBuffer, extractTextFromFile } from '../../common/utils.ts';
 import fs from 'fs-extra';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { GetObjectCommand, ListObjectsV2Command, PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
 
 const { resourceConfig, libraryOptions } = await getAmplifyDataClientConfig(process.env as any);
 Amplify.configure(resourceConfig, libraryOptions);
@@ -21,8 +22,12 @@ const LOCAL_DOCS_DIR = path.resolve(__dirname, '..', '..', '..', 'local_docs');
 
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY || null;
 const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY || null;
+const AWS_REGION = process.env.AWS_REGION || 'us-west-2';
+const STORAGE_BUCKET_NAME = process.env.STORAGE_BUCKET_NAME || null;
+const S3_DOCS_PREFIX = (process.env.S3_DOCS_PREFIX || 'local_docs/').replace(/^\/+/, '');
 const ALLOWED_PROVIDERS = ['openai', 'google', 'bedrock'] as const;
 const DEFAULT_PROVIDER: string = OPENAI_API_KEY ? 'openai' : (GOOGLE_API_KEY ? 'google' : 'bedrock');
+const DEFAULT_TOPICS = ['forensics', 'designer genes', 'scioly results'];
 
 function splitCsvLine(line: string): string[] {
   const out: string[] = [];
@@ -116,6 +121,47 @@ function buildSciolyResultsSnippet(rawText: string, filename: string): string {
   return normalizedLines.join('\n').slice(0, 24000);
 }
 
+function topicToSlug(topic: string): string {
+  return topic.toString().toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '');
+}
+
+function slugToTopic(slug: string): string {
+  return (slug || '').replace(/_/g, ' ').trim();
+}
+
+function buildSnippet(topic: string | null, text: string, relName: string, ext: string): string {
+  if (topic === 'scioly results' && ext === '.csv') {
+    return buildSciolyResultsSnippet(text || '', relName);
+  }
+  return (text || '').slice(0, 4000);
+}
+
+function inferTopicFromRelativeName(relName: string): string | null {
+  const normalized = relName.replace(/\\/g, '/');
+  const parts = normalized.split('/').filter(Boolean);
+  if (parts.length < 2) return null;
+  const first = parts[0];
+  if (!first) return null;
+  return slugToTopic(first) || null;
+}
+
+async function s3BodyToBuffer(body: any): Promise<Buffer> {
+  if (!body) return Buffer.from('');
+  if (typeof body.transformToByteArray === 'function') {
+    const arr = await body.transformToByteArray();
+    return Buffer.from(arr);
+  }
+  if (typeof body.transformToString === 'function') {
+    const str = await body.transformToString();
+    return Buffer.from(str, 'utf8');
+  }
+  const chunks: Buffer[] = [];
+  for await (const chunk of body) {
+    chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk));
+  }
+  return Buffer.concat(chunks);
+}
+
 async function walkDir(dir: string) {
   const results: string[] = [];
   const entries = await fs.readdir(dir, { withFileTypes: true }).catch(() => []);
@@ -129,6 +175,145 @@ async function walkDir(dir: string) {
     }
   }
   return results;
+}
+
+type ImportSource = {
+  sourcePath: string;
+  filename: string;
+  topic: string | null;
+  ext: string;
+  loadText: () => Promise<string>;
+};
+
+function resolveExistingPathKey(p: string): string {
+  const raw = String(p || '');
+  if (!raw) return '';
+  if (raw.startsWith('s3://')) return raw;
+  return path.resolve(raw);
+}
+
+async function upsertDocument(
+  existingByPath: Map<string, any>,
+  source: ImportSource,
+  provider: string,
+): Promise<'added' | 'updated' | 'skipped'> {
+  const text = await source.loadText();
+  const snippet = buildSnippet(source.topic, text, source.filename, source.ext);
+  if (!snippet.trim()) return 'skipped';
+  const emb = provider ? await computeEmbedding(snippet, provider) : null;
+  const existing = existingByPath.get(source.sourcePath);
+  if (existing?.id) {
+    const { data: doc, errors } = await dataClient.models.Document.update({
+      id: existing.id,
+      filename: source.filename,
+      path: source.sourcePath,
+      topic: source.topic,
+      text: snippet,
+      embedding: emb ? JSON.stringify(emb) : '',
+      embedding_provider: emb ? provider : null,
+    });
+    if (errors || !doc) return 'skipped';
+    existingByPath.set(source.sourcePath, doc);
+    return 'updated';
+  }
+
+  const { data: doc, errors } = await dataClient.models.Document.create({
+    filename: source.filename,
+    path: source.sourcePath,
+    topic: source.topic,
+    text: snippet,
+    embedding: emb ? JSON.stringify(emb) : '',
+    embedding_provider: emb ? provider : null,
+  });
+  if (errors || !doc) return 'skipped';
+  existingByPath.set(source.sourcePath, doc);
+  return 'added';
+}
+
+async function collectLocalSources(topicFilter: string | null): Promise<ImportSource[]> {
+  const sources: ImportSource[] = [];
+  const rootDir = topicFilter
+    ? path.join(LOCAL_DOCS_DIR, topicToSlug(topicFilter))
+    : LOCAL_DOCS_DIR;
+  if (!fs.existsSync(rootDir)) return sources;
+  const files = await walkDir(rootDir);
+  for (const full of files) {
+    const st = await fs.stat(full).catch(() => null);
+    if (!st || !st.isFile()) continue;
+    const relName = path.relative(LOCAL_DOCS_DIR, full);
+    const ext = path.extname(full).toLowerCase();
+    const topic = topicFilter || inferTopicFromRelativeName(relName);
+    sources.push({
+      sourcePath: path.resolve(full),
+      filename: relName,
+      topic,
+      ext,
+      loadText: async () => extractTextFromFile(full),
+    });
+  }
+  return sources;
+}
+
+async function collectS3Sources(topicFilter: string | null): Promise<ImportSource[]> {
+  const sources: ImportSource[] = [];
+  if (!STORAGE_BUCKET_NAME) return sources;
+
+  const client = new S3Client({ region: AWS_REGION });
+  const prefix = topicFilter
+    ? `${S3_DOCS_PREFIX}${topicToSlug(topicFilter)}/`
+    : S3_DOCS_PREFIX;
+  let continuationToken: string | undefined;
+
+  do {
+    const listResp = await client.send(new ListObjectsV2Command({
+      Bucket: STORAGE_BUCKET_NAME,
+      Prefix: prefix,
+      ContinuationToken: continuationToken,
+    }));
+    const objects = listResp.Contents || [];
+    for (const obj of objects) {
+      const key = obj.Key || '';
+      if (!key || key.endsWith('/')) continue;
+      const relName = key.startsWith(S3_DOCS_PREFIX) ? key.slice(S3_DOCS_PREFIX.length) : key;
+      const ext = path.extname(relName).toLowerCase();
+      const topic = topicFilter || inferTopicFromRelativeName(relName);
+      const sourcePath = `s3://${STORAGE_BUCKET_NAME}/${key}`;
+      sources.push({
+        sourcePath,
+        filename: relName,
+        topic,
+        ext,
+        loadText: async () => {
+          const objResp = await client.send(new GetObjectCommand({
+            Bucket: STORAGE_BUCKET_NAME,
+            Key: key,
+          }));
+          const buffer = await s3BodyToBuffer(objResp.Body);
+          return extractTextFromBuffer(buffer, ext);
+        },
+      });
+    }
+    continuationToken = listResp.IsTruncated ? listResp.NextContinuationToken : undefined;
+  } while (continuationToken);
+
+  return sources;
+}
+
+async function ensureS3TopicFolders() {
+  if (!STORAGE_BUCKET_NAME) return;
+  const client = new S3Client({ region: AWS_REGION });
+  for (const topic of DEFAULT_TOPICS) {
+    const key = `${S3_DOCS_PREFIX}${topicToSlug(topic)}/.keep`;
+    try {
+      await client.send(new PutObjectCommand({
+        Bucket: STORAGE_BUCKET_NAME,
+        Key: key,
+        Body: '',
+      }));
+    } catch (err) {
+      console.error(`[documents] failed to ensure S3 folder key ${key}`, err);
+    }
+  }
 }
 
 async function getConfiguredProvider(): Promise<string> {
@@ -182,124 +367,78 @@ async function setConfiguredProvider(provider: string) {
 }
 
 async function importTopic(topic: string, provider: string) {
-  const slug = topic.toString().toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '');
-  const topicDir = path.join(LOCAL_DOCS_DIR, slug);
-  if (!fs.existsSync(topicDir)) {
-    return { ok: false, message: 'topic directory not found', total: 0 };
+  console.log(`[documents] importTopic start topic="${topic}" provider="${provider}"`);
+  await ensureS3TopicFolders();
+  const localSources = await collectLocalSources(topic);
+  const s3Sources = await collectS3Sources(topic);
+  const sources = [...localSources, ...s3Sources];
+  if (!sources.length) {
+    const slug = topicToSlug(topic);
+    return {
+      ok: false,
+      message: `No files found for topic "${topic}". Checked local_docs/${slug} and s3://${STORAGE_BUCKET_NAME || '<unset-bucket>'}/${S3_DOCS_PREFIX}${slug}/`,
+      total: 0,
+    };
   }
 
-  const files = await walkDir(topicDir);
   const { data: existingDocs } = await dataClient.models.Document.list();
-  const existingByPath = new Map(existingDocs.map((d: any) => [path.resolve(d.path), d]));
+  const existingByPath = new Map(
+    existingDocs
+      .map((d: any) => [resolveExistingPathKey(d.path), d] as const)
+      .filter(([k]) => Boolean(k)),
+  );
 
   let added = 0;
   let updated = 0;
-  for (const full of files) {
-    const resolvedFull = path.resolve(full);
-    const st = await fs.stat(full).catch(() => null);
-    if (!st || !st.isFile()) continue;
-
+  for (const source of sources) {
     try {
-      const relName = path.relative(LOCAL_DOCS_DIR, full);
-      const text = await extractTextFromFile(full);
-      const ext = path.extname(full).toLowerCase();
-      const snippet = topic === 'scioly results' && ext === '.csv'
-        ? buildSciolyResultsSnippet(text || '', relName)
-        : (text || '').slice(0, 4000);
-      const emb = provider ? await computeEmbedding(snippet, provider) : null;
-      const existing = existingByPath.get(resolvedFull);
-      if (existing?.id) {
-        const { data: doc, errors } = await dataClient.models.Document.update({
-          id: existing.id,
-          filename: relName,
-          path: full,
-          topic,
-          text: snippet,
-          embedding: emb ? JSON.stringify(emb) : '',
-          embedding_provider: emb ? provider : null,
-        });
-        if (errors || !doc) continue;
-        existingByPath.set(resolvedFull, doc);
+      const result = await upsertDocument(existingByPath, source, provider);
+      if (result === 'updated') {
         updated += 1;
-      } else {
-        const { data: doc, errors } = await dataClient.models.Document.create({
-          filename: relName,
-          path: full,
-          topic,
-          text: snippet,
-          embedding: emb ? JSON.stringify(emb) : '',
-          embedding_provider: emb ? provider : null,
-        });
-        if (errors || !doc) continue;
-        existingByPath.set(resolvedFull, doc);
+      } else if (result === 'added') {
         added += 1;
       }
     } catch (err) {
-      console.error(`Failed to import ${full}`, err);
+      console.error(`Failed to import ${source.sourcePath}`, err);
     }
   }
 
+  console.log(`[documents] importTopic done topic="${topic}" added=${added} updated=${updated}`);
   return { ok: true, message: `Imported ${added} files, updated ${updated} files`, total: existingDocs.length + added };
 }
 
 async function preprocess(provider: string) {
+  console.log(`[documents] preprocess start provider="${provider}"`);
+  await ensureS3TopicFolders();
   const { data: existingDocs } = await dataClient.models.Document.list();
-  const existingByPath = new Map(existingDocs.map((d: any) => [path.resolve(d.path), d]));
+  const existingByPath = new Map(
+    existingDocs
+      .map((d: any) => [resolveExistingPathKey(d.path), d] as const)
+      .filter(([k]) => Boolean(k)),
+  );
+  const sources = [...await collectLocalSources(null), ...await collectS3Sources(null)];
 
   let added = 0;
   let updated = 0;
-  if (fs.existsSync(LOCAL_DOCS_DIR)) {
-    const files = await walkDir(LOCAL_DOCS_DIR);
-    for (const full of files) {
-      const resolvedFull = path.resolve(full);
-
-      try {
-        const relName = path.relative(LOCAL_DOCS_DIR, full);
-        const text = await extractTextFromFile(full);
-        const ext = path.extname(full).toLowerCase();
-        const isSciolyResultsCsv = relName.startsWith(`scioly_results${path.sep}`) && ext === '.csv';
-        const snippet = isSciolyResultsCsv
-          ? buildSciolyResultsSnippet(text || '', relName)
-          : (text || '').slice(0, 4000);
-        const emb = provider ? await computeEmbedding(snippet, provider) : null;
-        const existing = existingByPath.get(resolvedFull);
-        if (existing?.id) {
-          const { data: doc, errors } = await dataClient.models.Document.update({
-            id: existing.id,
-            filename: relName,
-            path: full,
-            topic: existing.topic || (isSciolyResultsCsv ? 'scioly results' : null),
-            text: snippet,
-            embedding: emb ? JSON.stringify(emb) : '',
-            embedding_provider: emb ? provider : null,
-          });
-          if (errors || !doc) continue;
-          existingByPath.set(resolvedFull, doc);
-          updated += 1;
-        } else {
-          const { data: doc, errors } = await dataClient.models.Document.create({
-            filename: relName,
-            path: full,
-            topic: isSciolyResultsCsv ? 'scioly results' : null,
-            text: snippet,
-            embedding: emb ? JSON.stringify(emb) : '',
-            embedding_provider: emb ? provider : null,
-          });
-          if (errors || !doc) continue;
-          existingByPath.set(resolvedFull, doc);
-          added += 1;
-        }
-      } catch (err) {
-        console.error(`Failed to preprocess ${full}`, err);
+  for (const source of sources) {
+    try {
+      const result = await upsertDocument(existingByPath, source, provider);
+      if (result === 'updated') {
+        updated += 1;
+      } else if (result === 'added') {
+        added += 1;
       }
+    } catch (err) {
+      console.error(`Failed to preprocess ${source.sourcePath}`, err);
     }
   }
 
+  console.log(`[documents] preprocess done added=${added} updated=${updated}`);
   return { ok: true, message: `Preprocessed ${added} files, updated ${updated} files`, total: existingDocs.length + added };
 }
 
 async function getTopics() {
-  const predefined = ['forensics', 'designer genes', 'scioly results'];
+  const predefined = DEFAULT_TOPICS;
   const { data: docs, errors } = await dataClient.models.Document.list();
 
   if (errors) {

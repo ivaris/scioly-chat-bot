@@ -158,6 +158,18 @@ async function retrieveContext(topic: string | null, query: string | null, k = 3
     } else {
       candidates = docs;
     }
+    // Backward-compatible fallback for older imports that may not have the topic set.
+    if (topic === 'scioly results' && candidates.length === 0) {
+      const { data: allDocs, errors: allDocsErrors } = await dataClient.models.Document.list();
+      if (allDocsErrors) {
+        console.error('Failed to fetch all documents for scioly fallback', allDocsErrors);
+      } else {
+        candidates = (allDocs || []).filter((d: any) =>
+          /[\\/]scioly_results[\\/]/.test(String(d.path || '')) ||
+          String(d.filename || '').startsWith('scioly_results/'),
+        );
+      }
+    }
   } else {
     const { data: docs, errors } = await dataClient.models.Document.list();
     if (errors) {
@@ -213,6 +225,14 @@ export const handler: Schema['chat']['functionHandler'] = async (event) => {
     }
 
     const contexts = await retrieveContext(topic, userQuery, 4, provider);
+    if (topic === 'scioly results' && contexts.length === 0) {
+      return {
+        reply: [
+          'I cannot find any indexed Scioly results yet for this environment.',
+          'Run Admin Tools > Preprocess Topic = scioly results > Preprocess, then try again.',
+        ].join(' '),
+      };
+    }
     const topicInstruction = getTopicInstruction(topic);
     const systemParts: string[] = [];
     if (topicInstruction) systemParts.push(topicInstruction);

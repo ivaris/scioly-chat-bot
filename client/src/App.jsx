@@ -205,9 +205,15 @@ export default function App() {
   const handlePreprocess = async () => {
     setPreprocessing(true)
     try {
-      await client.mutations.documentsImportTopic({ topic: adminTopic })
-      await client.mutations.documentsPreprocess()
+      const importRes = await client.mutations.documentsImportTopic({ topic: adminTopic })
+      const preprocessRes = await client.mutations.documentsPreprocess()
       await loadTopics()
+      const importMsg = importRes?.data?.message || 'Import completed.'
+      const preprocessMsg = preprocessRes?.data?.message || 'Preprocess completed.'
+      setMessages((prev) => [
+        ...prev,
+        { role: 'assistant', content: `Preprocess status (${adminTopic}): ${importMsg} ${preprocessMsg}` },
+      ])
     } catch (err) {
       setMessages((prev) => [...prev, { role: 'assistant', content: `Preprocess failed: ${String(err)}` }])
     } finally {

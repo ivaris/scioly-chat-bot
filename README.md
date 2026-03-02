@@ -91,3 +91,9 @@ curl -X POST http://localhost:3000/api/local/import -H 'Content-Type: applicatio
 curl -X POST http://localhost:3000/api/local/import-all -H 'Content-Type: application/json' -d '{"provider":"google"}'
 ```
 
+Amplify Gen2 S3 document ingestion
+
+- The backend reads from S3 bucket `scioly-content` under prefix `local_docs/`.
+- Upload files to `local_docs/<topic_slug>/...` (example: `local_docs/scioly_results/2026-02-14_jordan_invitational_c.csv`).
+- `documentsImportTopic(topic)` and `documentsPreprocess()` ingest from both local `local_docs/` and S3 `local_docs/` prefix.
+- In deployed environments, S3 is the recommended source because Lambda cannot read your laptop filesystem.

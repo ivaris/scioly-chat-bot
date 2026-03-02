@@ -17,17 +17,27 @@ export function sanitizeText(text: string): string {
   return text.replace(/\0/g, '').replace(/[\x00-\x08\x0B-\x0C\x0E-\x1F\x7F-\x9F]/g, ' ').trim();
 }
 
+export async function extractTextFromBuffer(buffer: Buffer, ext: string): Promise<string> {
+  const normalizedExt = (ext || '').toLowerCase();
+  if (normalizedExt === '.pdf') {
+    const data: any = await pdfParse(buffer);
+    return sanitizeText(data.text || '');
+  }
+  if (normalizedExt === '.docx' || normalizedExt === '.doc') {
+    try {
+      const res: any = await mammoth.extractRawText({ buffer });
+      return sanitizeText(res.value || '');
+    } catch {
+      return '';
+    }
+  }
+  return sanitizeText(buffer.toString('utf8'));
+}
+
 export async function extractTextFromFile(filePath: string): Promise<string> {
   const ext = path.extname(filePath).toLowerCase();
   const b = await fs.readFile(filePath);
-  if (ext === '.pdf') {
-    const data: any = await pdfParse(b);
-    return sanitizeText(data.text || '');
-  }
-  if (ext === '.docx' || ext === '.doc') {
-    try { const res: any = await mammoth.extractRawText({ buffer: b }); return sanitizeText(res.value || ''); } catch { return ''; }
-  }
-  return sanitizeText(b.toString('utf8'));
+  return extractTextFromBuffer(b, ext);
 }
 
 export async function computeEmbedding(text: string, provider = 'openai'): Promise<number[] | null> {
