@@ -192,6 +192,24 @@ function resolveExistingPathKey(p: string): string {
   return path.resolve(raw);
 }
 
+function semanticChunk(text: string, maxChunkSize = 1000, overlap = 200): string[] {
+  const chunks: string[] = [];
+  const sentences = text.split(/(?<=[.?!])\s+/);
+  let currentChunk = '';
+
+  for (const sentence of sentences) {
+    if (currentChunk.length + sentence.length > maxChunkSize) {
+      chunks.push(currentChunk);
+      currentChunk = currentChunk.slice(-overlap);
+    }
+    currentChunk += (currentChunk ? ' ' : '') + sentence;
+  }
+  if (currentChunk) {
+    chunks.push(currentChunk);
+  }
+  return chunks;
+}
+
 async function upsertDocument(
   existingByPath: Map<string, any>,
   source: ImportSource,
@@ -200,34 +218,59 @@ async function upsertDocument(
   const text = await source.loadText();
   const snippet = buildSnippet(source.topic, text, source.filename, source.ext);
   if (!snippet.trim()) return 'skipped';
-  const emb = provider ? await computeEmbedding(snippet, provider) : null;
-  const existing = existingByPath.get(source.sourcePath);
-  if (existing?.id) {
-    const { data: doc, errors } = await dataClient.models.Document.update({
-      id: existing.id,
+
+  const chunks = semanticChunk(snippet);
+  if (chunks.length === 0) return 'skipped';
+
+  let doc = existingByPath.get(source.sourcePath);
+  if (doc?.id) {
+    const { data: updatedDoc, errors } = await dataClient.models.Document.update({
+      id: doc.id,
       filename: source.filename,
       path: source.sourcePath,
       topic: source.topic,
-      text: snippet,
-      embedding: emb ? JSON.stringify(emb) : '',
-      embedding_provider: emb ? provider : null,
     });
-    if (errors || !doc) return 'skipped';
-    existingByPath.set(source.sourcePath, doc);
-    return 'updated';
+    if (errors || !updatedDoc) return 'skipped';
+    doc = updatedDoc;
+  } else {
+    const { data: newDoc, errors } = await dataClient.models.Document.create({
+      filename: source.filename,
+      path: source.sourcePath,
+      topic: source.topic,
+    });
+    if (errors || !newDoc) return 'skipped';
+    doc = newDoc;
   }
 
-  const { data: doc, errors } = await dataClient.models.Document.create({
-    filename: source.filename,
-    path: source.sourcePath,
-    topic: source.topic,
-    text: snippet,
-    embedding: emb ? JSON.stringify(emb) : '',
-    embedding_provider: emb ? provider : null,
-  });
-  if (errors || !doc) return 'skipped';
-  existingByPath.set(source.sourcePath, doc);
-  return 'added';
+  const existingChunks = await dataClient.models.Chunk.list({ filter: { documentID: { eq: doc.id } } });
+  const existingChunksMap = new Map(existingChunks.data.map(c => [c.chunk_idx, c]));
+
+  for (let i = 0; i < chunks.length; i++) {
+    const chunkContent = chunks[i];
+    const emb = provider ? await computeEmbedding(chunkContent, provider) : null;
+    const existingChunk = existingChunksMap.get(i);
+
+    if (existingChunk) {
+      await dataClient.models.Chunk.update({
+        id: existingChunk.id,
+        content: chunkContent,
+        size: chunkContent.length,
+        embedding: emb ? JSON.stringify(emb) : '',
+        embedding_provider: emb ? provider : null,
+      });
+    } else {
+      await dataClient.models.Chunk.create({
+        documentID: doc.id,
+        chunk_idx: i,
+        content: chunkContent,
+        size: chunkContent.length,
+        embedding: emb ? JSON.stringify(emb) : '',
+        embedding_provider: emb ? provider : null,
+      });
+    }
+  }
+
+  return doc ? (existingByPath.has(source.sourcePath) ? 'updated' : 'added') : 'skipped';
 }
 
 async function collectLocalSources(topicFilter: string | null): Promise<ImportSource[]> {

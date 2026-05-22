@@ -143,63 +143,53 @@ function runImageSearchTool(rawQuery: string, selectedTopic: string): string {
 }
 
 async function retrieveContext(topic: string | null, query: string | null, k = 3, provider = 'openai') {
-  let candidates: any[] = [];
+  let chunks: any[] = [];
   
   if (topic) {
     const { data: docs, errors } = await dataClient.models.Document.list({
-      filter: {
-        topic: {
-          eq: topic,
-        },
-      },
+      filter: { topic: { eq: topic } },
     });
     if (errors) {
       console.error('Failed to fetch documents by topic', errors);
-    } else {
-      candidates = docs;
-    }
-    // Backward-compatible fallback for older imports that may not have the topic set.
-    if (topic === 'scioly results' && candidates.length === 0) {
-      const { data: allDocs, errors: allDocsErrors } = await dataClient.models.Document.list();
-      if (allDocsErrors) {
-        console.error('Failed to fetch all documents for scioly fallback', allDocsErrors);
-      } else {
-        candidates = (allDocs || []).filter((d: any) =>
-          /[\\/]scioly_results[\\/]/.test(String(d.path || '')) ||
-          String(d.filename || '').startsWith('scioly_results/'),
-        );
+    } else if (docs.length > 0) {
+      // For each document, get its chunks
+      for (const doc of docs) {
+         const { data: docChunks } = await dataClient.models.Chunk.list({
+             filter: { documentID: { eq: doc.id } }
+         });
+         chunks.push(...docChunks);
       }
     }
   } else {
-    const { data: docs, errors } = await dataClient.models.Document.list();
-    if (errors) {
-      console.error('Failed to fetch all documents', errors);
-    } else {
-      candidates = docs;
-    }
+      const { data: allChunks, errors } = await dataClient.models.Chunk.list();
+      if (errors) {
+          console.error('Failed to fetch chunks', errors);
+      } else {
+          chunks = allChunks;
+      }
   }
 
   if (query) {
-    const embCandidates = candidates.filter(d => d.embedding && d.embedding_provider === provider);
-    if (embCandidates.length > 0) {
+    const embChunks = chunks.filter(c => c.embedding && c.embedding_provider === provider);
+    if (embChunks.length > 0) {
       const qEmb = await computeEmbedding((query || '').slice(0,1000), provider);
       if (qEmb) { 
-        const scored = embCandidates.map(d => ({ d, score: cosine(qEmb, JSON.parse(d.embedding)) })); 
+        const scored = embChunks.map(c => ({ c, score: cosine(qEmb, JSON.parse(c.embedding)) }));
         scored.sort((a,b) => b.score - a.score); 
-        return scored.slice(0,k).map(c => c.d.text); 
+        return scored.slice(0,k).map(res => res.c.content);
       }
     }
   }
 
   const q = (query || '').toLowerCase().split(/\W+/).filter(Boolean);
-  const scored = candidates.map(d => { 
-    const text = (d.text || '').toLowerCase(); 
+  const scored = chunks.map(c => {
+    const text = (c.content || '').toLowerCase();
     let score = 0; 
     for (const token of q) if (text.includes(token)) score += 1; 
-    return { d, score }; 
+    return { c, score };
   });
   scored.sort((a,b) => b.score - a.score);
-  return scored.slice(0,k).map(s => s.d.text);
+  return scored.slice(0,k).map(s => s.c.content);
 }
 
 export const handler: Schema['chat']['functionHandler'] = async (event) => {

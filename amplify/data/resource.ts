@@ -8,7 +8,19 @@ const schema = a.schema({
       filename: a.string(),
       path: a.string(),
       topic: a.string(),
-      text: a.string(),
+      // text: a.string(), // No longer storing full text in Document
+      // embedding: a.string(), // No longer storing full embedding in Document
+      // embedding_provider: a.string(), // No longer storing full embedding provider in Document
+      chunks: a.hasMany('Chunk', 'documentID'),
+    })
+    .authorization((allow) => [allow.group('admin')]),
+
+  Chunk: a
+    .model({
+      documentID: a.id().required(),
+      chunk_idx: a.integer().required(),
+      content: a.string().required(),
+      size: a.integer().required(),
       embedding: a.string(), // Storing number[] as a JSON string
       embedding_provider: a.string(),
     })
